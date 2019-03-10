@@ -241,6 +241,84 @@
 
 
   
+    <article id="post-配置 Hexo 免密 hexo deploy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/10/配置 Hexo 免密 hexo deploy/">Github Deploy Key 操作如何避免输密码</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/10/配置 Hexo 免密 hexo deploy/" class="archive-article-date">
+  	<time datetime="2019-03-10T12:03:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="生成deploy-key"><a href="#生成deploy-key" class="headerlink" title="生成deploy key"></a>生成deploy key</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -f ~/.ssh/deploy_key_repo1</span><br></pre></td></tr></table></figure>
+<h1 id="添加路径到认证列表"><a href="#添加路径到认证列表" class="headerlink" title="添加路径到认证列表"></a>添加路径到认证列表</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/deploy_key_repo1</span><br></pre></td></tr></table></figure>
+<h1 id="查看认证列表，看是否成功添加"><a href="#查看认证列表，看是否成功添加" class="headerlink" title="查看认证列表，看是否成功添加"></a>查看认证列表，看是否成功添加</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add -l</span><br></pre></td></tr></table></figure>
+<h1 id="复制-deploy-public-key"><a href="#复制-deploy-public-key" class="headerlink" title="复制 deploy public key"></a>复制 deploy public key</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cat ~/.ssh/deploy_key_repo1.pub | pbcopy</span><br></pre></td></tr></table></figure>
+<h2 id="打开github网站，在某个-Repository里面点击设置，添加这个复制的deploy-public-key-并授予write权限给这个设备"><a href="#打开github网站，在某个-Repository里面点击设置，添加这个复制的deploy-public-key-并授予write权限给这个设备" class="headerlink" title="打开github网站，在某个 Repository里面点击设置，添加这个复制的deploy public key , 并授予write权限给这个设备"></a>打开github网站，在某个 Repository里面点击设置，添加这个复制的deploy public key , 并授予write权限给这个设备</h2><p><img src="/images/favicon.jpg" alt></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hexo Tricks</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/10/配置 Hexo 免密 hexo deploy/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -406,6 +484,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Log Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hexo Tricks</a>
               </li>
             
             <div class="clearfix"></div>
