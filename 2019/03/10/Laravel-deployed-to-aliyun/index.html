@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Plogger">
 <meta property="og:description" content="首先你需要一台阿里云/腾讯云服务器 安装系统选择 ubuntu 16.04 然后通过 ssh 登录远程服务器按下列步骤进行配置： 更新列表1apt-get update 安装语言包123sudo apt-get install -y language-pack-en-baselocale-gen en_US.UTF-8 安装常用软件1234567891011121314151617181920su">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-10T07:51:02.252Z">
+<meta property="og:updated_time" content="2019-03-10T14:18:25.628Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Laravel 部署到阿里云 &#x2F; 腾讯云">
 <meta name="twitter:description" content="首先你需要一台阿里云/腾讯云服务器 安装系统选择 ubuntu 16.04 然后通过 ssh 登录远程服务器按下列步骤进行配置： 更新列表1apt-get update 安装语言包123sudo apt-get install -y language-pack-en-baselocale-gen en_US.UTF-8 安装常用软件1234567891011121314151617181920su">
@@ -187,53 +187,18 @@
 <h2 id="安装常用软件"><a href="#安装常用软件" class="headerlink" title="安装常用软件"></a>安装常用软件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y vim git zip unzip</span><br><span class="line">安装PHP7</span><br><span class="line"></span><br><span class="line">//请确保每一步没有出错，如果有报错，可尝试多安装几次</span><br><span class="line"></span><br><span class="line">sudo apt-get install -y software-properties-common</span><br><span class="line"></span><br><span class="line">sudo LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">apt-cache search php7.1</span><br><span class="line"></span><br><span class="line">sudo apt-get install -y php7.1</span><br><span class="line"></span><br><span class="line">sudo apt-get install -y php7.1-mysql</span><br><span class="line"></span><br><span class="line">sudo apt-get install -y php7.1-fpm</span><br><span class="line"></span><br><span class="line">sudo apt-get install -y php7.1-curl php7.1-xml php7.1-mcrypt php7.1-json php7.1-gd php7.1-mbstring</span><br></pre></td></tr></table></figure>
 <h2 id="安装-Mysql"><a href="#安装-Mysql" class="headerlink" title="安装 Mysql"></a>安装 Mysql</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y mysql-server</span><br><span class="line"></span><br><span class="line">//安装完后需设置密码安装</span><br></pre></td></tr></table></figure>
 <h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//安装之前需确认是否安装了apache2，如果已经安装了apache2，需要先停止/卸载 apache2</span><br><span class="line">//停止</span><br><span class="line">sudo service apache2 stop</span><br><span class="line">//卸载</span><br><span class="line">sudo apt-get --purge remove apache2</span><br><span class="line">sudo apt-get --purge remove apache2.2-common</span><br><span class="line">sudo apt-get autoremove</span><br><span class="line"></span><br><span class="line">//安装 nginx</span><br><span class="line"></span><br><span class="line">sudo apt-get install -y nginx</span><br></pre></td></tr></table></figure>
-<h2 id="配置-PHP7"><a href="#配置-PHP7" class="headerlink" title="配置 PHP7"></a>配置 PHP7</h2><p>sudo vim /etc/php/7.1/fpm/php.ini</p>
-<p>//修改 cgi.fix_pathinfo=0</p>
-<p>sudo vim /etc/php/7.1/fpm/pool.d/<a href="http://www.conf" target="_blank" rel="noopener">www.conf</a></p>
-<p>//修改 listen = /var/run/php7.1-fpm.sock<br>配置 Nginx</p>
-<p>sudo vim /etc/nginx/sites-available/default</p>
-<p>//修改如下，根据自己的项目情况修改对应信息：’laravel-project’替换为你的项目，’server_domain_or_IP’ 替换为你的网站域名或 IP 地址<br>server {<br>listen 80 default_server;<br>listen [::]:80 default_server;</p>
-<pre><code>root /var/www/laravel-project/public;
-
-index index.php index.html index.htm;
-
-server_name server_domain_or_IP;
-
-location / {
-    try_files $uri $uri/ /index.php?$query_string;
-}
-
-location ~ \.php$ {
-    try_files $uri /index.php =404;
-    fastcgi_split_path_info ^(.+\.php)(/.+)$;
-    fastcgi_pass unix:/var/run/php7.1-fpm.sock;
-    fastcgi_index index.php;
-    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    include fastcgi_params;
-}
-</code></pre><p>}<br>拉取代码</p>
-<p>//建议先将代码上传到云端代码仓库（github, coding）然后再在服务端上拉取</p>
-<p>cd /var/www</p>
-<p>git clone 地址<br>安装 Composer 并使用 Composer 安装代码依赖</p>
-<p>访问 composer 官网 获取下面四行代码最新版，直接粘贴执行安装 Composer</p>
-<p>php -r “copy(‘<a href="https://getcomposer.org/installer&#39;" target="_blank" rel="noopener">https://getcomposer.org/installer&#39;</a>, ‘composer-setup.php’);”<br>php -r “if (hash_file(‘SHA384’, ‘composer-setup.php’) === ‘669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410’) { echo ‘Installer verified’; } else { echo ‘Installer corrupt’; unlink(‘composer-setup.php’); } echo PHP_EOL;”<br>php composer-setup.php<br>php -r “unlink(‘composer-setup.php’);”</p>
-<p>//然后移动 composer.phar<br>mv composer.phar /usr/local/bin/composer</p>
-<p>//进入项目目录<br>cd /var/www/laravel-project</p>
-<p>//执行 composer install<br>composer install<br>创建 .env 文件</p>
-<p>cd /var/www/laravel-project</p>
-<p>cp .env.example .env</p>
-<p>vim .env</p>
-<p>//根据项目实际情况修改 .env 文件<br>生成 laravel key</p>
-<p>cd /var/www/laravel-project</p>
-<p>php artisan key:generate<br>创建数据库，执行迁移</p>
-<p>//首先登录 mysql 创建一个对应项目的数据库，名字应该和 .env 文件中的一致</p>
-<p>cd /var/www/laravel-project</p>
-<p>php artisan migrate<br>修改权限</p>
-<p>sudo chown -R www-data:www-data /var/www</p>
-<p>sudo chmod -R 777 /var/www/laravel-project/storage<br>重启 Nginx 和 PHP7 fpm</p>
-<p>service nginx restart</p>
-<p>service php7.1-fpm restart<br>搞定！</p>
-
+<h2 id="配置-PHP7"><a href="#配置-PHP7" class="headerlink" title="配置 PHP7"></a>配置 PHP7</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/php/7.1/fpm/php.ini</span><br><span class="line"></span><br><span class="line">//修改 cgi.fix_pathinfo=0</span><br><span class="line"></span><br><span class="line">sudo vim /etc/php/7.1/fpm/pool.d/www.conf</span><br><span class="line"></span><br><span class="line">//修改 listen = /var/run/php7.1-fpm.sock</span><br></pre></td></tr></table></figure>
+<p>##配置 Nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/nginx/sites-available/default</span><br><span class="line"></span><br><span class="line">//修改如下，根据自己的项目情况修改对应信息：&apos;laravel-project&apos;替换为你的项目，&apos;server_domain_or_IP&apos; 替换为你的网站域名或 IP 地址</span><br><span class="line">server &#123;</span><br><span class="line">listen 80 default_server;</span><br><span class="line">listen [::]:80 default_server;</span><br><span class="line"></span><br><span class="line">    root /var/www/laravel-project/public;</span><br><span class="line"></span><br><span class="line">    index index.php index.html index.htm;</span><br><span class="line"></span><br><span class="line">    server_name server_domain_or_IP;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        try_files $uri $uri/ /index.php?$query_string;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location ~ \.php$ &#123;</span><br><span class="line">        try_files $uri /index.php =404;</span><br><span class="line">        fastcgi_split_path_info ^(.+\.php)(/.+)$;</span><br><span class="line">        fastcgi_pass unix:/var/run/php7.1-fpm.sock;</span><br><span class="line">        fastcgi_index index.php;</span><br><span class="line">        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">        include fastcgi_params;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="拉取代码"><a href="#拉取代码" class="headerlink" title="拉取代码"></a>拉取代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//建议先将代码上传到云端代码仓库（github, coding）然后再在服务端上拉取</span><br><span class="line"></span><br><span class="line">cd /var/www</span><br><span class="line"></span><br><span class="line">git clone 地址</span><br></pre></td></tr></table></figure>
+<h2 id="安装-Composer-并使用-Composer-安装代码依赖"><a href="#安装-Composer-并使用-Composer-安装代码依赖" class="headerlink" title="安装 Composer 并使用 Composer 安装代码依赖"></a>安装 Composer 并使用 Composer 安装代码依赖</h2><p>访问 composer 官网 获取下面四行代码最新版，直接粘贴执行安装 Composer</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">php -r &quot;copy(&apos;https://getcomposer.org/installer&apos;, &apos;composer-setup.php&apos;);&quot;</span><br><span class="line">php -r &quot;if (hash_file(&apos;SHA384&apos;, &apos;composer-setup.php&apos;) === &apos;669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410&apos;) &#123; echo &apos;Installer verified&apos;; &#125; else &#123; echo &apos;Installer corrupt&apos;; unlink(&apos;composer-setup.php&apos;); &#125; echo PHP_EOL;&quot;</span><br><span class="line">php composer-setup.php</span><br><span class="line">php -r &quot;unlink(&apos;composer-setup.php&apos;);&quot;</span><br><span class="line"></span><br><span class="line">//然后移动 composer.phar</span><br><span class="line">mv composer.phar /usr/local/bin/composer</span><br><span class="line"></span><br><span class="line">//进入项目目录</span><br><span class="line">cd /var/www/laravel-project</span><br><span class="line"></span><br><span class="line">//执行 composer install</span><br><span class="line">composer install</span><br></pre></td></tr></table></figure>
+<h2 id="创建-env-文件"><a href="#创建-env-文件" class="headerlink" title="创建 .env 文件"></a>创建 .env 文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /var/www/laravel-project</span><br><span class="line"></span><br><span class="line">cp .env.example .env</span><br><span class="line"></span><br><span class="line">vim .env</span><br><span class="line"></span><br><span class="line">//根据项目实际情况修改 .env 文件</span><br></pre></td></tr></table></figure>
+<h2 id="生成-laravel-key"><a href="#生成-laravel-key" class="headerlink" title="生成 laravel key"></a>生成 laravel key</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /var/www/laravel-project</span><br><span class="line"></span><br><span class="line">php artisan key:generate</span><br></pre></td></tr></table></figure>
+<h2 id="创建数据库，执行迁移"><a href="#创建数据库，执行迁移" class="headerlink" title="创建数据库，执行迁移"></a>创建数据库，执行迁移</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//首先登录 mysql 创建一个对应项目的数据库，名字应该和 .env 文件中的一致</span><br><span class="line"></span><br><span class="line">cd /var/www/laravel-project</span><br><span class="line"></span><br><span class="line">php artisan migrate</span><br></pre></td></tr></table></figure>
+<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R www-data:www-data /var/www</span><br><span class="line"></span><br><span class="line">sudo chmod -R 777 /var/www/laravel-project/storage</span><br></pre></td></tr></table></figure>
+<h2 id="重启-Nginx-和-PHP7-fpm"><a href="#重启-Nginx-和-PHP7-fpm" class="headerlink" title="重启 Nginx 和 PHP7 fpm"></a>重启 Nginx 和 PHP7 fpm</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service nginx restart</span><br><span class="line"></span><br><span class="line">service php7.1-fpm restart</span><br></pre></td></tr></table></figure>
+<h2 id="搞定！"><a href="#搞定！" class="headerlink" title="搞定！"></a>搞定！</h2>
       
 
       
@@ -478,10 +443,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Interview</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
               </li>
              
@@ -495,6 +456,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Tricks</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Interview</a>
               </li>
             
             <div class="clearfix"></div>
