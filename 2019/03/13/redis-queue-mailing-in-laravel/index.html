@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Algorithms 1. Tow Sum | Plogger</title>
+  <title>Laravel中Redis驱动邮件推送队列 | Plogger</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DescriptionGiven an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use">
-<meta name="keywords" content="Algorithms,Java,Daily">
+  <meta name="description" content="先安装依赖1$ composer require &quot;predis/predis:~1.0&quot;">
+<meta name="keywords" content="Laravel,Queue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Algorithms 1. Tow Sum">
-<meta property="og:url" content="http://yoursite.com/2019/03/12/[algorithms]Two-Sum190311/index.html">
+<meta property="og:title" content="Laravel中Redis驱动邮件推送队列">
+<meta property="og:url" content="http://yoursite.com/2019/03/13/redis-queue-mailing-in-laravel/index.html">
 <meta property="og:site_name" content="Plogger">
-<meta property="og:description" content="DescriptionGiven an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use">
+<meta property="og:description" content="先安装依赖1$ composer require &quot;predis/predis:~1.0&quot;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-12T06:49:29.318Z">
+<meta property="og:updated_time" content="2019-03-12T13:48:42.834Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Algorithms 1. Tow Sum">
-<meta name="twitter:description" content="DescriptionGiven an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use">
+<meta name="twitter:title" content="Laravel中Redis驱动邮件推送队列">
+<meta name="twitter:description" content="先安装依赖1$ composer require &quot;predis/predis:~1.0&quot;">
   
     <link rel="alternative" href="/atom.xml" title="Plogger" type="application/atom+xml">
   
@@ -159,43 +159,52 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-[algorithms]Two-Sum190311" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-redis-queue-mailing-in-laravel" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Algorithms 1. Tow Sum
+      Laravel中Redis驱动邮件推送队列
     </h1>
   
 
         
-        <a href="/2019/03/12/[algorithms]Two-Sum190311/" class="archive-article-date">
-  	<time datetime="2019-03-11T18:49:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-11</time>
+        <a href="/2019/03/13/redis-queue-mailing-in-laravel/" class="archive-article-date">
+  	<time datetime="2019-03-12T21:49:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
-<p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [2, 7, 11, 15], target = 9,</span><br><span class="line"></span><br><span class="line">Because nums[0] + nums[1] = 2 + 7 = 9,</span><br><span class="line">return [0, 1].</span><br></pre></td></tr></table></figure>
+        <h2 id="先安装依赖"><a href="#先安装依赖" class="headerlink" title="先安装依赖"></a>先安装依赖</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> composer require "predis/predis:~1.0"</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="Approach-1-Brute-Force"><a href="#Approach-1-Brute-Force" class="headerlink" title="Approach 1: Brute Force"></a>Approach 1: Brute Force</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">    <span class="comment">//数组中的元素，依次匹配，蛮力求解</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; nums.length; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[j] == target - nums[i]) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123; i, j &#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"No two sum solution"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Time complexity: O(n²)</li>
-<li>Space complexity: O(1)</li>
-</ul>
-<h3 id="Approach-2-Two-pass-Hash-Table"><a href="#Approach-2-Two-pass-Hash-Table" class="headerlink" title="Approach 2: Two-pass Hash Table"></a>Approach 2: Two-pass Hash Table</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">    <span class="comment">//new 一个Two-pass Hash Table</span></span><br><span class="line">    Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="comment">//遍历数组 nums 中， 将其值与索引填进表</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        map.put(num[i], i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> complement = target - nums[i];</span><br><span class="line">        <span class="comment">//在Hash table中查找complement是否有key被映射在表中(注意：key不能等于本身)</span></span><br><span class="line">        <span class="keyword">if</span> (map.containsKey(complement) &amp;&amp; map.get(complement) != i) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;i, map.get(complement)&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"No two sum solution"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Time complexity: O(n)</li>
-<li>Space Complexity: O(n)</li>
-</ul>
-<blockquote>
+<h2 id="配置config-queue-php"><a href="#配置config-queue-php" class="headerlink" title="配置config/queue.php"></a>配置<code>config/queue.php</code></h2><blockquote>
+<p>设置默认驱动为 Redis</p>
 </blockquote>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">return [</span><br><span class="line">    /*</span><br><span class="line">    |--------------------------------------------------------------------------</span><br><span class="line">    | Default Queue Connection Name</span><br><span class="line">    |--------------------------------------------------------------------------</span><br><span class="line">    |</span><br><span class="line">    | Laravel&apos;s queue API supports an assortment of back-ends via a single</span><br><span class="line">    | API, giving you convenient access to each back-end using the same</span><br><span class="line">    | syntax for every one. Here you may define a default connection.</span><br><span class="line">    |</span><br><span class="line">    */</span><br><span class="line">    &apos;default&apos; =&gt; env(&apos;QUEUE_CONNECTION&apos;, &apos;sync&apos;),</span><br><span class="line">    /*</span><br><span class="line">    |--------------------------------------------------------------------------</span><br><span class="line">    | Queue Connections</span><br><span class="line">    |--------------------------------------------------------------------------</span><br><span class="line">    |</span><br><span class="line">    | Here you may configure the connection information for each server that</span><br><span class="line">    | is used by your application. A default configuration has been added</span><br><span class="line">    | for each back-end shipped with Laravel. You are free to add more.</span><br><span class="line">    |</span><br><span class="line">    | Drivers: &quot;sync&quot;, &quot;database&quot;, &quot;beanstalkd&quot;, &quot;sqs&quot;, &quot;redis&quot;, &quot;null&quot;</span><br><span class="line">    |</span><br><span class="line">    */</span><br><span class="line">    &apos;connections&apos; =&gt; [</span><br><span class="line">        &apos;sync&apos; =&gt; [</span><br><span class="line">            &apos;driver&apos; =&gt; &apos;sync&apos;,</span><br><span class="line">        ],</span><br><span class="line">        &apos;database&apos; =&gt; [</span><br><span class="line">            &apos;driver&apos; =&gt; &apos;database&apos;,</span><br><span class="line">            &apos;table&apos; =&gt; &apos;jobs&apos;,</span><br><span class="line">            &apos;queue&apos; =&gt; &apos;default&apos;,</span><br><span class="line">            &apos;retry_after&apos; =&gt; 90,</span><br><span class="line">        ],</span><br><span class="line">        &apos;beanstalkd&apos; =&gt; [</span><br><span class="line">            &apos;driver&apos; =&gt; &apos;beanstalkd&apos;,</span><br><span class="line">            &apos;host&apos; =&gt; &apos;localhost&apos;,</span><br><span class="line">            &apos;queue&apos; =&gt; &apos;default&apos;,</span><br><span class="line">            &apos;retry_after&apos; =&gt; 90,</span><br><span class="line">            &apos;block_for&apos; =&gt; 0,</span><br><span class="line">        ],</span><br><span class="line">        &apos;sqs&apos; =&gt; [</span><br><span class="line">            &apos;driver&apos; =&gt; &apos;sqs&apos;,</span><br><span class="line">            &apos;key&apos; =&gt; env(&apos;AWS_ACCESS_KEY_ID&apos;),</span><br><span class="line">            &apos;secret&apos; =&gt; env(&apos;AWS_SECRET_ACCESS_KEY&apos;),</span><br><span class="line">            &apos;prefix&apos; =&gt; env(&apos;SQS_PREFIX&apos;, &apos;https://sqs.us-east-1.amazonaws.com/your-account-id&apos;),</span><br><span class="line">            &apos;queue&apos; =&gt; env(&apos;SQS_QUEUE&apos;, &apos;your-queue-name&apos;),</span><br><span class="line">            &apos;region&apos; =&gt; env(&apos;AWS_DEFAULT_REGION&apos;, &apos;us-east-1&apos;),</span><br><span class="line">        ],</span><br><span class="line">        &apos;redis&apos; =&gt; [</span><br><span class="line">            &apos;driver&apos; =&gt; &apos;redis&apos;,</span><br><span class="line">            &apos;connection&apos; =&gt; &apos;default&apos;,</span><br><span class="line">            &apos;queue&apos; =&gt; env(&apos;REDIS_QUEUE&apos;, &apos;default&apos;),</span><br><span class="line">            &apos;retry_after&apos; =&gt; 90,</span><br><span class="line">            &apos;block_for&apos; =&gt; null,</span><br><span class="line">        ],</span><br><span class="line">    ],</span><br><span class="line">    /*</span><br><span class="line">    |--------------------------------------------------------------------------</span><br><span class="line">    | Failed Queue Jobs</span><br><span class="line">    |--------------------------------------------------------------------------</span><br><span class="line">    |</span><br><span class="line">    | These options configure the behavior of failed queue job logging so you</span><br><span class="line">    | can control which database and table are used to store the jobs that</span><br><span class="line">    | have failed. You may change them to any database / table you wish.</span><br><span class="line">    |</span><br><span class="line">    */</span><br><span class="line">    &apos;failed&apos; =&gt; [</span><br><span class="line">        &apos;database&apos; =&gt; env(&apos;DB_CONNECTION&apos;, &apos;mysql&apos;),</span><br><span class="line">        &apos;table&apos; =&gt; &apos;failed_jobs&apos;,</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>创建失败进程记录表（失败任务达到最大尝试次数，添加到 failed_job 表中）</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> php artisan queue:failed-table</span><br><span class="line"><span class="meta">$</span> php artisan migrate</span><br></pre></td></tr></table></figure>
+<h2 id="使用-Laravel-封装好的邮件类发送邮件并加入队列"><a href="#使用-Laravel-封装好的邮件类发送邮件并加入队列" class="headerlink" title="使用 Laravel 封装好的邮件类发送邮件并加入队列"></a>使用 Laravel 封装好的邮件类发送邮件并加入队列</h2><blockquote>
+<p>先创建 SendEmail job</p>
+</blockquote>
+<p><code>php artisan make:job SendEmail</code></p>
+<blockquote>
+<p>然后在 SendEmail 的 handle 方法中使用 <code>Mailer</code> Contract 发送邮件给用户</p>
+</blockquote>
+<blockquote>
+<p>最后在控制器中将发送邮件任务添加进队列</p>
+</blockquote>
+<p><code>$this-&gt;dispatch(new SendReminderEmail($user));</code></p>
+<blockquote>
+<p>Laravel 自带了一个队列进程用来处理被推送到队列的新任务。你可以使用 queue:work 命令运行这个队列进程。请注意，队列进程开始运行后，会 持续监听队列，直至你手动停止或关闭终端</p>
+</blockquote>
+<p><code>php artisan queue:work</code></p>
+<h2 id="最后配置邮箱，并打开邮箱-POP-服务即可"><a href="#最后配置邮箱，并打开邮箱-POP-服务即可" class="headerlink" title="最后配置邮箱，并打开邮箱 POP 服务即可"></a>最后配置邮箱，并打开邮箱 POP 服务即可</h2>
       
 
       
@@ -229,15 +238,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Algorithms</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Laravel</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Daily</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Queue</a>
         		</li>
       		
 		</ul>
@@ -293,7 +298,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/12/[algorithms]Two-Sum190311/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/13/redis-queue-mailing-in-laravel/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -307,18 +312,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/13/How-do-unguard-and-reguard-work-in-laravel/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          unguard / reguard 这二个方法怎么理解？
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/11/why-you-must-not-put-too-much-code-in-a-single-controller/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">为什么你不应该在一个控制器中放过多代码？</div>
+    <a href="/2019/03/13/[algorithms]Add-Two-Numbers190311/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Algorithms 2. Add Two Numbers</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -337,19 +333,6 @@
             </div>
         </div>
         
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example"><span class="toc-number">1.1.</span> <span class="toc-text">Example:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Approach-1-Brute-Force"><span class="toc-number">2.1.</span> <span class="toc-text">Approach 1: Brute Force</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Approach-2-Two-pass-Hash-Table"><span class="toc-number">2.2.</span> <span class="toc-text">Approach 2: Two-pass Hash Table</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
         
     </div>
 </aside>
