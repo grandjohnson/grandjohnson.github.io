@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Plogger">
 <meta property="og:description" content="用户管理 连接到远程主机上的 mysql，命令行下输入： mysql -h110.110.110.110 -uroot -p     更改 root 密码solution 1: 使用 SET PASSWORD 命令  set password for root@localhost = password(‘123456’);solution 2: 命令行下使用 mysqladminmysqladmi">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-13T15:00:13.578Z">
+<meta property="og:updated_time" content="2019-03-15T14:49:46.491Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql常用命令，【更新中】">
 <meta name="twitter:description" content="用户管理 连接到远程主机上的 mysql，命令行下输入： mysql -h110.110.110.110 -uroot -p     更改 root 密码solution 1: 使用 SET PASSWORD 命令  set password for root@localhost = password(‘123456’);solution 2: 命令行下使用 mysqladminmysqladmi">
@@ -191,6 +191,7 @@
 <p>set password for root@localhost = password(‘123456’);<br>solution 2: 命令行下使用 mysqladmin<br>mysqladmin -uroot -p123456 passwrod 654321<br>solution 3: UPDATE 关键字直接修改 user 表</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">UPDATE user SET password=password('123456') WHERE user='root' AND host='localhost';</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <p><em>关于 <code>flush privileges</code> 命令</em></p>
 <p>flush privileges 命令本质上的作用是将当前 user 和 privilige 表中的用户信息/权限设置从 mysql 库(MySQL 数据库的内置库)中提取到内存里。<br>MySQL 用户数据和权限有修改后，希望在”不重启 MySQL 服务”的情况下直接生效，那么就需要执行这个命令。<br>通常是在修改 ROOT 帐号的设置后，怕重启后无法再登录进来，那么直接 flush 之后就可以看权限设置是否生效。而不必冒太大风险</p>
 </li>
@@ -362,6 +363,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/03/15/[algorithms]Palindrome-Number190314/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Algorithms 9. Palindrome Number
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/03/13/[algorithms]Reverse-Integer190312/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Algorithms 7. Reverse Integer</div>
@@ -490,14 +500,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Tricks</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
               </li>
              
@@ -514,6 +516,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Tricks</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Algorithms</a>
               </li>
              
@@ -526,15 +536,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Queue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
             
             <div class="clearfix"></div>

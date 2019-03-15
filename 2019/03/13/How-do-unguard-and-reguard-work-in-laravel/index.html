@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>unguard / reguard 这二个方法怎么理解？ | Plogger</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="123456Model::unguard();$this-&amp;gt;call(UsersTableSeeder::class);Model::reguard(); 简单来说，是临时取消批量赋值（mass assignment）保护，因为此时可能需要批量对 is_admin 等敏感属性进行赋值，而为了安全这是不允许的。 1.什么是 mass assignmentlaravel 文档中经常会提到 mas">
+  <meta name="description" content="123456Model::unguard();$this-&amp;gt;call(UsersTableSeeder::class);Model::reguard(); 简单来说，是临时取消批量赋值（mass assignment）保护，因为此时可能需要批量对 is_admin 等敏感属性进行赋值，而为了安全这是不允许的。">
 <meta name="keywords" content="Laravel,随笔">
 <meta property="og:type" content="article">
 <meta property="og:title" content="unguard &#x2F; reguard 这二个方法怎么理解？">
 <meta property="og:url" content="http://yoursite.com/2019/03/13/How-do-unguard-and-reguard-work-in-laravel/index.html">
 <meta property="og:site_name" content="Plogger">
-<meta property="og:description" content="123456Model::unguard();$this-&amp;gt;call(UsersTableSeeder::class);Model::reguard(); 简单来说，是临时取消批量赋值（mass assignment）保护，因为此时可能需要批量对 is_admin 等敏感属性进行赋值，而为了安全这是不允许的。 1.什么是 mass assignmentlaravel 文档中经常会提到 mas">
+<meta property="og:description" content="123456Model::unguard();$this-&amp;gt;call(UsersTableSeeder::class);Model::reguard(); 简单来说，是临时取消批量赋值（mass assignment）保护，因为此时可能需要批量对 is_admin 等敏感属性进行赋值，而为了安全这是不允许的。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-12T08:15:30.084Z">
+<meta property="og:updated_time" content="2019-03-15T14:48:57.199Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="unguard &#x2F; reguard 这二个方法怎么理解？">
-<meta name="twitter:description" content="123456Model::unguard();$this-&amp;gt;call(UsersTableSeeder::class);Model::reguard(); 简单来说，是临时取消批量赋值（mass assignment）保护，因为此时可能需要批量对 is_admin 等敏感属性进行赋值，而为了安全这是不允许的。 1.什么是 mass assignmentlaravel 文档中经常会提到 mas">
+<meta name="twitter:description" content="123456Model::unguard();$this-&amp;gt;call(UsersTableSeeder::class);Model::reguard(); 简单来说，是临时取消批量赋值（mass assignment）保护，因为此时可能需要批量对 is_admin 等敏感属性进行赋值，而为了安全这是不允许的。">
   
     <link rel="alternative" href="/atom.xml" title="Plogger" type="application/atom+xml">
   
@@ -181,6 +181,7 @@
       
         <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Model::unguard();</span><br><span class="line"></span><br><span class="line"><span class="keyword">$this</span>-&gt;call(UsersTableSeeder::class);</span><br><span class="line"></span><br><span class="line">Model::reguard();</span><br></pre></td></tr></table></figure>
 <p>简单来说，是临时取消批量赋值（mass assignment）保护，因为此时可能需要批量对 is_admin 等敏感属性进行赋值，而为了安全这是不允许的。</p>
+<a id="more"></a>
 <h2 id="1-什么是-mass-assignment"><a href="#1-什么是-mass-assignment" class="headerlink" title="1.什么是 mass assignment"></a>1.什么是 mass assignment</h2><p>laravel 文档中经常会提到 mass assignment，我简单翻译为批量赋值，其实质是为了防止用户恶意注入数据，保护数据的安全。<br>举例来说，你的用户表有 users 里有 is_admin 属性，标识该用户是否为管理员，正常情况下你当然不希望用户自己设置此属性。但如果你包含了如下代码：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$user = <span class="keyword">new</span> User(input::all())</span><br></pre></td></tr></table></figure>
 <p>则用户可能恶意构造数据，同时提交了 name、password、is_admin 等字段，从而将自己设置为管理员，这就带来了安全问题。</p>
@@ -440,14 +441,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Tricks</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
               </li>
              
@@ -464,6 +457,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Tricks</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Algorithms</a>
               </li>
              
@@ -476,15 +477,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Queue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
             
             <div class="clearfix"></div>

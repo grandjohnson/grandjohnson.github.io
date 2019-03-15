@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Algorithms 7. Reverse Integer | Plogger</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DescriptionGiven a 32-bit signed integer, reverse digits of an integer. Examples:12345678Input: 123Output: 321Input: -123Output: -321Input: 120Output: 21 NotesAssume we are dealing with an environment">
+  <meta name="description" content="DescriptionGiven a 32-bit signed integer, reverse digits of an integer. Examples:12345678Input: 123Output: 321Input: -123Output: -321Input: 120Output: 21 Emphasis给定 32 位整数，求其倒转后的值">
 <meta name="keywords" content="Algorithms,Java,Daily">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Algorithms 7. Reverse Integer">
 <meta property="og:url" content="http://yoursite.com/2019/03/13/[algorithms]Reverse-Integer190312/index.html">
 <meta property="og:site_name" content="Plogger">
-<meta property="og:description" content="DescriptionGiven a 32-bit signed integer, reverse digits of an integer. Examples:12345678Input: 123Output: 321Input: -123Output: -321Input: 120Output: 21 NotesAssume we are dealing with an environment">
+<meta property="og:description" content="DescriptionGiven a 32-bit signed integer, reverse digits of an integer. Examples:12345678Input: 123Output: 321Input: -123Output: -321Input: 120Output: 21 Emphasis给定 32 位整数，求其倒转后的值">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-12T14:22:55.750Z">
+<meta property="og:updated_time" content="2019-03-15T14:41:50.659Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithms 7. Reverse Integer">
-<meta name="twitter:description" content="DescriptionGiven a 32-bit signed integer, reverse digits of an integer. Examples:12345678Input: 123Output: 321Input: -123Output: -321Input: 120Output: 21 NotesAssume we are dealing with an environment">
+<meta name="twitter:description" content="DescriptionGiven a 32-bit signed integer, reverse digits of an integer. Examples:12345678Input: 123Output: 321Input: -123Output: -321Input: 120Output: 21 Emphasis给定 32 位整数，求其倒转后的值">
   
     <link rel="alternative" href="/atom.xml" title="Plogger" type="application/atom+xml">
   
@@ -181,6 +181,8 @@
       
         <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a 32-bit signed integer, reverse digits of an integer.</p>
 <h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples:"></a>Examples:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input: 123</span><br><span class="line">Output: 321</span><br><span class="line"></span><br><span class="line">Input: -123</span><br><span class="line">Output: -321</span><br><span class="line"></span><br><span class="line">Input: 120</span><br><span class="line">Output: 21</span><br></pre></td></tr></table></figure>
+<h3 id="Emphasis"><a href="#Emphasis" class="headerlink" title="Emphasis"></a>Emphasis</h3><p>给定 32 位整数，求其倒转后的值</p>
+<a id="more"></a>
 <h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h3><p>Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231, 231 − 1]. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="Approach-Pop-and-Push-Digits-amp-Check-before-Overflow"><a href="#Approach-Pop-and-Push-Digits-amp-Check-before-Overflow" class="headerlink" title="Approach : Pop and Push Digits &amp; Check before Overflow"></a>Approach : Pop and Push Digits &amp; Check before Overflow</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// init reversed number</span></span><br><span class="line">        <span class="keyword">int</span> rev = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (x != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// pop 个位上的数字</span></span><br><span class="line">            <span class="keyword">int</span> pop = x % <span class="number">10</span>;</span><br><span class="line">            <span class="comment">// push 移位十位上的数字</span></span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">            <span class="comment">// 检查是否溢出</span></span><br><span class="line">            <span class="keyword">if</span> (rev &gt; Integer.MAX_VALUE/<span class="number">10</span> || (rev == Integer.MAX_VALUE / <span class="number">10</span> &amp;&amp; pop &gt; <span class="number">7</span>)) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (rev &lt; Integer.MIN_VALUE/<span class="number">10</span> || (rev == Integer.MIN_VALUE / <span class="number">10</span> &amp;&amp; pop &lt; -<span class="number">8</span>)) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            <span class="comment">// 从小位数到大位数，将数字一个个 push 到 reversed number</span></span><br><span class="line">            rev = rev * <span class="number">10</span> + pop;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rev;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -333,7 +335,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Examples"><span class="toc-number">1.1.</span> <span class="toc-text">Examples:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Notes"><span class="toc-number">1.2.</span> <span class="toc-text">Notes</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Approach-Pop-and-Push-Digits-amp-Check-before-Overflow"><span class="toc-number">2.1.</span> <span class="toc-text">Approach : Pop and Push Digits &amp; Check before Overflow</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Examples"><span class="toc-number">1.1.</span> <span class="toc-text">Examples:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Emphasis"><span class="toc-number">1.2.</span> <span class="toc-text">Emphasis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Notes"><span class="toc-number">1.3.</span> <span class="toc-text">Notes</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Approach-Pop-and-Push-Digits-amp-Check-before-Overflow"><span class="toc-number">2.1.</span> <span class="toc-text">Approach : Pop and Push Digits &amp; Check before Overflow</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -445,14 +447,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Tricks</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
               </li>
              
@@ -469,6 +463,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Tricks</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Algorithms</a>
               </li>
              
@@ -481,15 +483,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Queue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
             
             <div class="clearfix"></div>
