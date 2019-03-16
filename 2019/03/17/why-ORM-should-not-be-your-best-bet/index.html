@@ -6,19 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: MVC | Plogger</title>
+  <title>为什么 ORM 不应该成为最佳选择 | Plogger</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Blog for logging">
-<meta name="keywords" content="PHP,Java,Linux,mysql,develop,代码,编程,开源,开发者,程序员,vuejs">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Plogger">
-<meta property="og:url" content="http://yoursite.com/tags/MVC/index.html">
+  <meta name="description" content="这几年在 web 领域，MVC 模式为主要的企业系统架构模式，持久化设计(persistence)实现了数据处理内部的业务逻辑和数据逻辑分离的解耦合(loose coupling)，而 ORM 作为这其中最复杂也最重要的热点技术，有的人却又不同见解。。。 为什么 ORM 不应该成为你的最佳选择？">
+<meta name="keywords" content="数据库,译文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为什么 ORM 不应该成为最佳选择">
+<meta property="og:url" content="http://yoursite.com/2019/03/17/why-ORM-should-not-be-your-best-bet/index.html">
 <meta property="og:site_name" content="Plogger">
-<meta property="og:description" content="Blog for logging">
+<meta property="og:description" content="这几年在 web 领域，MVC 模式为主要的企业系统架构模式，持久化设计(persistence)实现了数据处理内部的业务逻辑和数据逻辑分离的解耦合(loose coupling)，而 ORM 作为这其中最复杂也最重要的热点技术，有的人却又不同见解。。。 为什么 ORM 不应该成为你的最佳选择？">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1000/1*SDPbY5d3RwhdfgN_BQoygA.png">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1000/1*sJBKkiz4f0yQZ4XrhrH0jA.png">
+<meta property="og:updated_time" content="2019-03-16T15:29:00.258Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Plogger">
-<meta name="twitter:description" content="Blog for logging">
+<meta name="twitter:title" content="为什么 ORM 不应该成为最佳选择">
+<meta name="twitter:description" content="这几年在 web 领域，MVC 模式为主要的企业系统架构模式，持久化设计(persistence)实现了数据处理内部的业务逻辑和数据逻辑分离的解耦合(loose coupling)，而 ORM 作为这其中最复杂也最重要的热点技术，有的人却又不同见解。。。 为什么 ORM 不应该成为你的最佳选择？">
+<meta name="twitter:image" content="https://cdn-images-1.medium.com/max/1000/1*SDPbY5d3RwhdfgN_BQoygA.png">
   
     <link rel="alternative" href="/atom.xml" title="Plogger" type="application/atom+xml">
   
@@ -158,68 +162,203 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-why-ORM-should-not-be-your-best-bet" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/11/why-you-must-not-put-too-much-code-in-a-single-controller/" class="archive-article-date">
-  	<time datetime="2019-03-11T08:03:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/11/why-you-must-not-put-too-much-code-in-a-single-controller/">为什么你不应该在一个控制器中放过多代码？</a>
+    <h1 class="article-title" itemprop="name">
+      为什么 ORM 不应该成为最佳选择
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/17/why-ORM-should-not-be-your-best-bet/" class="archive-article-date">
+  	<time datetime="2019-03-16T22:27:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>这几年在 web 领域，MVC 模式为主要的企业系统架构模式，<a href="https://baike.baidu.com/item/%E6%8C%81%E4%B9%85%E5%8C%96/6726574?fr=aladdin" target="_blank" rel="noopener">持久化</a>设计(persistence)实现了数据处理内部的业务逻辑和数据逻辑分离的解耦合(loose coupling)，而 ORM 作为这其中最复杂也最重要的热点技术，有的人却又不同见解。。。</em></p>
+<h2 id="为什么-ORM-不应该成为你的最佳选择？"><a href="#为什么-ORM-不应该成为你的最佳选择？" class="headerlink" title="为什么 ORM 不应该成为你的最佳选择？"></a>为什么 ORM 不应该成为你的最佳选择？</h2><a id="more"></a>
+<p>几年前，当我刚开始编程时，ORM 就像是软件项目的生命线。当时环境强调了代码库和 ORM 层之间的紧密耦合。可以说，我接受的训练是不去考虑 ORM 的项目。</p>
+<p>后来，我开始考虑 ORM 所引发的问题</p>
+<ul>
+<li>你不能优化你的代码，即使你真的需要额外的速度提升，ORM 代码在项目中占据了绝对位置</li>
+</ul>
+<ul>
+<li><p>对正在发生的事情的可见性是最低的</p>
+</li>
+<li><p>文档通常是大量的、零碎的，因此很难搜索细节</p>
+</li>
+</ul>
+<p>这些听起来似乎是小问题，但它们严重影响了生产效率。除此之外，我意识到 ORM 生态系统与主流 web 开发是分离的，它有自己的问题和限制。ORMS 通常带来不必要的复杂性，在数据库交互上产生了“漏洞抽象”。它们有时有一个陡峭的学习曲线，开发人员倾向于将它们视为黑盒。</p>
+<p>我看到开发人员采用各种方法来处理 ORM 问题。有些完全删除 ORM 框架，这通常是一个艰巨的任务，取决于项目的复杂性。有些人接受 ORM 并在他们的项目中调整代码;他们准备在性能上妥协，不关心增加的复杂性。他们中的许多人选择继续使用 ORM 的黄金路径，但是新的或复杂的查询被排除在外。他们有的人实际上根据需求创建了自己特定项目的映射层。</p>
+<p>到目前为止，我已经使用 Hibernate (Java)和 Mongoose(用于 MongoDB 的 Node 中的 ORM 框架)。当我面对一个已经使用 Mongoose 作为 ORM 的 Node 项目时，我面临着重构几乎整个项目的艰巨任务。起初，我考虑完全删除 ORM 框架。但如果没有数据支持，我的同事们不会满意。因此，我分别在有与没有 Mongoose 的情况下对查询时间进行了基准测试。结果如下。</p>
+<p><img src="https://cdn-images-1.medium.com/max/1000/1*SDPbY5d3RwhdfgN_BQoygA.png" alt></p>
+<p>这使我大吃一惊。我本以为不使用 Mongoose 会提高性能，但没有达到这个程度。有了这些数据，答案就很明确了: ORM 出局。几个月后，一位同事问我，他们应该使用 Sequelize 还是 Pg 访问 Postgres 数据库。意识到 Sequelize 是一个 ORM，我把票投给了 Pg，但请他对两者进行基准测试。我想验证 ORM 的顾忌是否合理，数据一出来，果然证明了这确实是完全合理的。</p>
+<p><img src="https://cdn-images-1.medium.com/max/1000/1*sJBKkiz4f0yQZ4XrhrH0jA.png" alt></p>
+<p>猜猜他用的是哪个库？</p>
+<p>有一件事要记住，当我们放弃 ORMs 时，无论是 Mongoose 还是 Sequelize，我们都知道我们放弃的是什么。具体来说，使用 ORM 框架的好处是 Schema 检查、预构建方法、抽象等。一个主要的问题是缺乏 Shema 检查(当不使用 ORMs 时)，这可能导致错误的数据进入数据库。为了解决这个问题，我们使用了 Joi，它使我们的任务更容易，同时保持性能不变。对于其他部分，我们需要编写几行额外的代码，但这是值得的。这比每次查询耗费几十毫秒(有时甚至几秒钟)要好。</p>
+<p>我并不是要抨击 orm，它们非常适合初学者和小型项目。但是当您的项目扩展到大量查询和文档时，ORMs 可能成为瓶颈。把它们想象成越南战争，你需要决定什么时候撤出并逃跑，否则重大损失是不可避免的。</p>
+<hr>
+<p>原文出处: <a href="https://medium.com/ameykpatil/why-orm-shouldnt-be-your-best-bet-fffb66314b1b" target="_blank" rel="noopener">https://medium.com/ameykpatil/why-orm-shouldnt-be-your-best-bet-fffb66314b1b</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Laravel</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MVC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">译文</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/17/why-ORM-should-not-be-your-best-bet/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/03/17/[algorithms]/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Algorithms 14. Longest Common Prefix
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/03/16/[algorithms]Roman-to-integer190315/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Algorithms 13. Roman to integer</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -242,9 +381,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

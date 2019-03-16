@@ -160,6 +160,91 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-why-you-must-not-put-too-much-code-in-a-single-controller" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/11/why-you-must-not-put-too-much-code-in-a-single-controller/">为什么你不应该在一个控制器中放过多代码？</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/11/why-you-must-not-put-too-much-code-in-a-single-controller/" class="archive-article-date">
+  	<time datetime="2019-03-11T08:03:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong><em>前两个星期，在 Laravel community 里，有位 CTO 发帖吐槽，他的雇员在一个控制器中写了 400 行左右的代码，名字起得也是相当无语的。。。</em></strong></p>
+<p><img src="/images/Snipaste_2019-03-10_23-00-16.png" alt></p>
+        
+          <a class="article-more-a" href="/2019/03/11/why-you-must-not-put-too-much-code-in-a-single-controller/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Laravel</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MVC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/11/why-you-must-not-put-too-much-code-in-a-single-controller/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Laravel-from-the-apprentice-to-the-artisan" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -210,6 +295,89 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/03/11/Laravel-from-the-apprentice-to-the-artisan/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Laravel-auto-deploy-with-envoyer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/11/Laravel-auto-deploy-with-envoyer/">使用envoyer进行Laravel项目自动化部署</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/11/Laravel-auto-deploy-with-envoyer/" class="archive-article-date">
+  	<time datetime="2019-03-10T22:27:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="首先安装依赖"><a href="#首先安装依赖" class="headerlink" title="首先安装依赖"></a>首先安装依赖</h2><blockquote>
+<p>composer global require laravel/envoy</p>
+</blockquote>
+<h2 id="在项目根目录下创建-Envoy-blade-php"><a href="#在项目根目录下创建-Envoy-blade-php" class="headerlink" title="在项目根目录下创建 Envoy.blade.php"></a>在项目根目录下创建 Envoy.blade.php</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@servers([<span class="string">'web'</span> =&gt; <span class="string">'root@47.99.47.169'</span>])</span><br><span class="line"></span><br><span class="line">@task(<span class="string">'deploy'</span>, [<span class="string">'on'</span> =&gt; [<span class="string">'web'</span>], <span class="string">'confirm'</span> =&gt; <span class="keyword">true</span>])</span><br><span class="line">cd /<span class="keyword">var</span>/www/laravel-blog-code</span><br><span class="line">git pull</span><br><span class="line">@endtask</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/03/11/Laravel-auto-deploy-with-envoyer/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Laravel</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/11/Laravel-auto-deploy-with-envoyer/">展开全文 >></a>
         </p>
       
 
@@ -301,91 +469,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/03/10/Inteview frequent asked aspects/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-My-first-post" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/10/My-first-post/">My first post</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/10/My-first-post/" class="archive-article-date">
-  	<time datetime="2019-03-10T12:03:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Here-is-my-first-post"><a href="#Here-is-my-first-post" class="headerlink" title="Here is my first post."></a>Here is my first post.</h1><h2 id="check-out-Markdown"><a href="#check-out-Markdown" class="headerlink" title="check out Markdown"></a>check out Markdown</h2><blockquote>
-<p>some code here</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;Hello, Hexo&quot;;</span><br></pre></td></tr></table></figure>
-<h2 id="Seems-nothing-is-wrong"><a href="#Seems-nothing-is-wrong" class="headerlink" title="Seems nothing is wrong"></a>Seems nothing is wrong</h2><hr>
-<h1 id="Hexo-is-ready-to-go"><a href="#Hexo-is-ready-to-go" class="headerlink" title="Hexo is ready to go!"></a>Hexo is ready to go!</h1><blockquote>
-<p>add more posts !</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tricks</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/10/My-first-post/">展开全文 >></a>
         </p>
       
 
@@ -551,6 +634,91 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/03/10/配置 Hexo 免密 hexo deploy/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-My-first-post" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/10/My-first-post/">My first post</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/10/My-first-post/" class="archive-article-date">
+  	<time datetime="2019-03-10T12:03:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Here-is-my-first-post"><a href="#Here-is-my-first-post" class="headerlink" title="Here is my first post."></a>Here is my first post.</h1><h2 id="check-out-Markdown"><a href="#check-out-Markdown" class="headerlink" title="check out Markdown"></a>check out Markdown</h2><blockquote>
+<p>some code here</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;Hello, Hexo&quot;;</span><br></pre></td></tr></table></figure>
+<h2 id="Seems-nothing-is-wrong"><a href="#Seems-nothing-is-wrong" class="headerlink" title="Seems nothing is wrong"></a>Seems nothing is wrong</h2><hr>
+<h1 id="Hexo-is-ready-to-go"><a href="#Hexo-is-ready-to-go" class="headerlink" title="Hexo is ready to go!"></a>Hexo is ready to go!</h1><blockquote>
+<p>add more posts !</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tricks</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/10/My-first-post/">展开全文 >></a>
         </p>
       
 
@@ -756,11 +924,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Interview</a>
+                <a href="javascript:void(0)" class="js-tag color1">Deployment</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Deployment</a>
+                <a href="javascript:void(0)" class="js-tag color5">Interview</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -784,7 +952,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Queue</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">译文</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -793,6 +965,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Queue</a>
               </li>
             
             <div class="clearfix"></div>
