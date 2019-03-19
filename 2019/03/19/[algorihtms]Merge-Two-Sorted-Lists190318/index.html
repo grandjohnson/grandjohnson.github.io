@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Algorithms 20 Valid Parantheses | Plogger</title>
+  <title>Algorithms 21 Merge Two Sorted Lists | Plogger</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DescriptionGiven a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid. An input string is valid if:  Open brackets must be closed by the same">
+  <meta name="description" content="DescriptionMerge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists. Example12Input: 1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4Out">
 <meta name="keywords" content="Algorithms,Java,Daily">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Algorithms 20 Valid Parantheses">
-<meta property="og:url" content="http://yoursite.com/2019/03/18/[algorithms]Valid-Parentheses190317/index.html">
+<meta property="og:title" content="Algorithms 21 Merge Two Sorted Lists">
+<meta property="og:url" content="http://yoursite.com/2019/03/19/[algorihtms]Merge-Two-Sorted-Lists190318/index.html">
 <meta property="og:site_name" content="Plogger">
-<meta property="og:description" content="DescriptionGiven a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid. An input string is valid if:  Open brackets must be closed by the same">
+<meta property="og:description" content="DescriptionMerge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists. Example12Input: 1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4Out">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-18T14:17:30.170Z">
+<meta property="og:updated_time" content="2019-03-18T14:47:32.896Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Algorithms 20 Valid Parantheses">
-<meta name="twitter:description" content="DescriptionGiven a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid. An input string is valid if:  Open brackets must be closed by the same">
+<meta name="twitter:title" content="Algorithms 21 Merge Two Sorted Lists">
+<meta name="twitter:description" content="DescriptionMerge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists. Example12Input: 1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4Out">
   
     <link rel="alternative" href="/atom.xml" title="Plogger" type="application/atom+xml">
   
@@ -159,36 +159,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-[algorithms]Valid-Parentheses190317" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-[algorihtms]Merge-Two-Sorted-Lists190318" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Algorithms 20 Valid Parantheses
+      Algorithms 21 Merge Two Sorted Lists
     </h1>
   
 
         
-        <a href="/2019/03/18/[algorithms]Valid-Parentheses190317/" class="archive-article-date">
-  	<time datetime="2019-03-17T22:49:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-17</time>
+        <a href="/2019/03/19/[algorihtms]Merge-Two-Sorted-Lists190318/" class="archive-article-date">
+  	<time datetime="2019-03-18T22:49:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.</p>
-<p>An input string is valid if:</p>
-<ul>
-<li>Open brackets must be closed by the same type of brackets.</li>
-<li>Open brackets must be closed in the correct order.</li>
-</ul>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;()&quot;</span><br><span class="line">Output: true</span><br><span class="line"></span><br><span class="line">Input: &quot;()[]&#123;&#125;&quot;</span><br><span class="line">Output: true</span><br><span class="line"></span><br><span class="line">Input: &quot;(]&quot;</span><br><span class="line">Output: false</span><br><span class="line"></span><br><span class="line">Input: &quot;([)]&quot;</span><br><span class="line">Output: false</span><br><span class="line"></span><br><span class="line">Input: &quot;&#123;[]&#125;&quot;</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="Emphasis"><a href="#Emphasis" class="headerlink" title="Emphasis"></a>Emphasis</h3><p>给定字符串判断其中各种括号是否书写是否正确</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Hash table that takes care of the mappings.</span></span><br><span class="line">  <span class="keyword">private</span> HashMap&lt;Character, Character&gt; mappings;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Initialize hash map with mappings. This simply makes the code easier to read.</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Solution</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.mappings = <span class="keyword">new</span> HashMap&lt;Character, Character&gt;();</span><br><span class="line">    <span class="keyword">this</span>.mappings.put(<span class="string">')'</span>, <span class="string">'('</span>);</span><br><span class="line">    <span class="keyword">this</span>.mappings.put(<span class="string">'&#125;'</span>, <span class="string">'&#123;'</span>);</span><br><span class="line">    <span class="keyword">this</span>.mappings.put(<span class="string">']'</span>, <span class="string">'['</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化一个栈实例</span></span><br><span class="line">    Stack&lt;Character&gt; stack = <span class="keyword">new</span> Stack&lt;Character&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">      <span class="keyword">char</span> c = s.charAt(i);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 如果当前括号为闭合号</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.mappings.containsKey(c)) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 得出最高栈元素 如果该栈为空, 设置值为#</span></span><br><span class="line">        <span class="keyword">char</span> topElement = stack.empty() ? <span class="string">'#'</span> : stack.pop();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果当前括号与最高栈元素不匹配，返回false</span></span><br><span class="line">        <span class="keyword">if</span> (topElement != <span class="keyword">this</span>.mappings.get(c)) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 如果这是个开括号，推入栈</span></span><br><span class="line">        stack.push(c);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果该栈仍包含元素，则无效</span></span><br><span class="line">    <span class="keyword">return</span> stack.isEmpty();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 1-&gt;2-&gt;4, 1-&gt;3-&gt;4</span><br><span class="line">Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</span><br></pre></td></tr></table></figure>
+<p>合并两个有序的链表，新链表应根据大小拼接两链表的节点</p>
+<h3 id="Emphasis"><a href="#Emphasis" class="headerlink" title="Emphasis"></a>Emphasis</h3><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 特殊情况</span></span><br><span class="line">		<span class="keyword">if</span>(l1 == <span class="keyword">null</span>) <span class="keyword">return</span> l2;</span><br><span class="line">		<span class="keyword">if</span>(l2 == <span class="keyword">null</span>) <span class="keyword">return</span> l1;</span><br><span class="line">        <span class="comment">// 比较当前节点的值，切换到较小节点的下一位，并返回较小节点</span></span><br><span class="line">		<span class="keyword">if</span>(l1.val &lt; l2.val)&#123;</span><br><span class="line">			l1.next = mergeTwoLists(l1.next, l2);</span><br><span class="line">			<span class="keyword">return</span> l1;</span><br><span class="line">		&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">			l2.next = mergeTwoLists(l1, l2.next);</span><br><span class="line">			<span class="keyword">return</span> l2;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -287,7 +281,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/18/[algorithms]Valid-Parentheses190317/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/19/[algorihtms]Merge-Two-Sorted-Lists190318/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -301,18 +295,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/19/Large-Scale-Laravel-Application/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          怎样设计大型 Laravel 项目结构？
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/17/[algorithms]Longest-Common-Prefix190316/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Algorithms 14. Longest Common Prefix</div>
+    <a href="/2019/03/19/Large-Scale-Laravel-Application/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">怎样设计大型 Laravel 项目结构？</div>
       <i class="icon-circle-right"></i>
     </a>
   

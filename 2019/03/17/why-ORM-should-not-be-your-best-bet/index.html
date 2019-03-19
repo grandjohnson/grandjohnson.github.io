@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="Plogger">
 <meta property="og:description" content="这几年在 web 领域，MVC 模式为主要的企业系统架构模式，持久化设计(persistence)实现了数据处理内部的业务逻辑和数据逻辑分离的解耦合(loose coupling)，而 ORM 作为这其中最复杂也最重要的热点技术，有的人却又不同见解。。。 为什么 ORM 不应该成为你的最佳选择？">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://cdn-images-1.medium.com/max/1000/1*SDPbY5d3RwhdfgN_BQoygA.png">
-<meta property="og:image" content="https://cdn-images-1.medium.com/max/1000/1*sJBKkiz4f0yQZ4XrhrH0jA.png">
-<meta property="og:updated_time" content="2019-03-16T15:29:00.258Z">
+<meta property="og:image" content="http://yoursite.com/images/why-orm-should-not-be-your-best-bet1.png">
+<meta property="og:image" content="http://yoursite.com/images/why-orm-should-not-be-your-best-bet2.png">
+<meta property="og:updated_time" content="2019-03-19T11:49:21.259Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为什么 ORM 不应该成为最佳选择">
 <meta name="twitter:description" content="这几年在 web 领域，MVC 模式为主要的企业系统架构模式，持久化设计(persistence)实现了数据处理内部的业务逻辑和数据逻辑分离的解耦合(loose coupling)，而 ORM 作为这其中最复杂也最重要的热点技术，有的人却又不同见解。。。 为什么 ORM 不应该成为你的最佳选择？">
-<meta name="twitter:image" content="https://cdn-images-1.medium.com/max/1000/1*SDPbY5d3RwhdfgN_BQoygA.png">
+<meta name="twitter:image" content="http://yoursite.com/images/why-orm-should-not-be-your-best-bet1.png">
   
     <link rel="alternative" href="/atom.xml" title="Plogger" type="application/atom+xml">
   
@@ -198,10 +198,8 @@
 <p>这些听起来似乎是小问题，但它们严重影响了生产效率。除此之外，我意识到 ORM 生态系统与主流 web 开发是分离的，它有自己的问题和限制。ORMS 通常带来不必要的复杂性，在数据库交互上产生了“漏洞抽象”。它们有时有一个陡峭的学习曲线，开发人员倾向于将它们视为黑盒。</p>
 <p>我看到开发人员采用各种方法来处理 ORM 问题。有些完全删除 ORM 框架，这通常是一个艰巨的任务，取决于项目的复杂性。有些人接受 ORM 并在他们的项目中调整代码;他们准备在性能上妥协，不关心增加的复杂性。他们中的许多人选择继续使用 ORM 的黄金路径，但是新的或复杂的查询被排除在外。他们有的人实际上根据需求创建了自己特定项目的映射层。</p>
 <p>到目前为止，我已经使用 Hibernate (Java)和 Mongoose(用于 MongoDB 的 Node 中的 ORM 框架)。当我面对一个已经使用 Mongoose 作为 ORM 的 Node 项目时，我面临着重构几乎整个项目的艰巨任务。起初，我考虑完全删除 ORM 框架。但如果没有数据支持，我的同事们不会满意。因此，我分别在有与没有 Mongoose 的情况下对查询时间进行了基准测试。结果如下。</p>
-<p><img src="https://cdn-images-1.medium.com/max/1000/1*SDPbY5d3RwhdfgN_BQoygA.png" alt></p>
-<p>这使我大吃一惊。我本以为不使用 Mongoose 会提高性能，但没有达到这个程度。有了这些数据，答案就很明确了: ORM 出局。几个月后，一位同事问我，他们应该使用 Sequelize 还是 Pg 访问 Postgres 数据库。意识到 Sequelize 是一个 ORM，我把票投给了 Pg，但请他对两者进行基准测试。我想验证 ORM 的顾忌是否合理，数据一出来，果然证明了这确实是完全合理的。</p>
-<p><img src="https://cdn-images-1.medium.com/max/1000/1*sJBKkiz4f0yQZ4XrhrH0jA.png" alt></p>
-<p>猜猜他用的是哪个库？</p>
+<p><img src="/images/why-orm-should-not-be-your-best-bet1.png" alt><br>这使我大吃一惊。我本以为不使用 Mongoose 会提高性能，但没有达到这个程度。有了这些数据，答案就很明确了: ORM 出局。几个月后，一位同事问我，他们应该使用 Sequelize 还是 Pg 访问 Postgres 数据库。意识到 Sequelize 是一个 ORM，我把票投给了 Pg，但请他对两者进行基准测试。我想验证 ORM 的顾忌是否合理，数据一出来，果然证明了这确实是完全合理的。</p>
+<p><img src="/images/why-orm-should-not-be-your-best-bet2.png" alt><br>猜猜他用的是哪个库？</p>
 <p>有一件事要记住，当我们放弃 ORMs 时，无论是 Mongoose 还是 Sequelize，我们都知道我们放弃的是什么。具体来说，使用 ORM 框架的好处是 Schema 检查、预构建方法、抽象等。一个主要的问题是缺乏 Shema 检查(当不使用 ORMs 时)，这可能导致错误的数据进入数据库。为了解决这个问题，我们使用了 Joi，它使我们的任务更容易，同时保持性能不变。对于其他部分，我们需要编写几行额外的代码，但这是值得的。这比每次查询耗费几十毫秒(有时甚至几秒钟)要好。</p>
 <p>我并不是要抨击 orm，它们非常适合初学者和小型项目。但是当您的项目扩展到大量查询和文档时，ORMs 可能成为瓶颈。把它们想象成越南战争，你需要决定什么时候撤出并逃跑，否则重大损失是不可避免的。</p>
 <hr>
@@ -451,15 +449,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Interview</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Interview</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,15 +489,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Queue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">译文</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Queue</a>
               </li>
              
               <li class="article-tag-list-item">

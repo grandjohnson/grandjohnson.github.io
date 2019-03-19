@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Algorithms 20 Valid Parantheses | Plogger</title>
+  <title>怎样设计大型 Laravel 项目结构？ | Plogger</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DescriptionGiven a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid. An input string is valid if:  Open brackets must be closed by the same">
-<meta name="keywords" content="Algorithms,Java,Daily">
+  <meta name="description" content="解决问题的最好方式就是直面他！维护庞大的 PHP 应用并不简单 我们都知道，Laravel 是目前最流行的 PHP 框架。它的目录结构很好，组织良好，定义明确，而且很简单。在处理中小型项目时，使用 Laravel 提供的默认项目结构绝对没问题。但是，当它是一个拥有 50 多个模型的大型应用程序时，我们就会开始对自己的代码库感到窒息。 维护大型应用程序可不是闹着玩的。尤其是在组织不合理的情况下。而">
+<meta name="keywords" content="Laravel,译文">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Algorithms 20 Valid Parantheses">
-<meta property="og:url" content="http://yoursite.com/2019/03/18/[algorithms]Valid-Parentheses190317/index.html">
+<meta property="og:title" content="怎样设计大型 Laravel 项目结构？">
+<meta property="og:url" content="http://yoursite.com/2019/03/19/Large-Scale-Laravel-Application/index.html">
 <meta property="og:site_name" content="Plogger">
-<meta property="og:description" content="DescriptionGiven a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid. An input string is valid if:  Open brackets must be closed by the same">
+<meta property="og:description" content="解决问题的最好方式就是直面他！维护庞大的 PHP 应用并不简单 我们都知道，Laravel 是目前最流行的 PHP 框架。它的目录结构很好，组织良好，定义明确，而且很简单。在处理中小型项目时，使用 Laravel 提供的默认项目结构绝对没问题。但是，当它是一个拥有 50 多个模型的大型应用程序时，我们就会开始对自己的代码库感到窒息。 维护大型应用程序可不是闹着玩的。尤其是在组织不合理的情况下。而">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-18T14:17:30.170Z">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1000/1*v7A8M9c4RMZMobcL6fJLZg.png">
+<meta property="og:updated_time" content="2019-03-19T11:44:29.825Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Algorithms 20 Valid Parantheses">
-<meta name="twitter:description" content="DescriptionGiven a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid. An input string is valid if:  Open brackets must be closed by the same">
+<meta name="twitter:title" content="怎样设计大型 Laravel 项目结构？">
+<meta name="twitter:description" content="解决问题的最好方式就是直面他！维护庞大的 PHP 应用并不简单 我们都知道，Laravel 是目前最流行的 PHP 框架。它的目录结构很好，组织良好，定义明确，而且很简单。在处理中小型项目时，使用 Laravel 提供的默认项目结构绝对没问题。但是，当它是一个拥有 50 多个模型的大型应用程序时，我们就会开始对自己的代码库感到窒息。 维护大型应用程序可不是闹着玩的。尤其是在组织不合理的情况下。而">
+<meta name="twitter:image" content="https://cdn-images-1.medium.com/max/1000/1*v7A8M9c4RMZMobcL6fJLZg.png">
   
     <link rel="alternative" href="/atom.xml" title="Plogger" type="application/atom+xml">
   
@@ -159,36 +161,105 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-[algorithms]Valid-Parentheses190317" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Large-Scale-Laravel-Application" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Algorithms 20 Valid Parantheses
+      怎样设计大型 Laravel 项目结构？
     </h1>
   
 
         
-        <a href="/2019/03/18/[algorithms]Valid-Parentheses190317/" class="archive-article-date">
-  	<time datetime="2019-03-17T22:49:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-17</time>
+        <a href="/2019/03/19/Large-Scale-Laravel-Application/" class="archive-article-date">
+  	<time datetime="2019-03-18T22:27:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.</p>
-<p>An input string is valid if:</p>
-<ul>
-<li>Open brackets must be closed by the same type of brackets.</li>
-<li>Open brackets must be closed in the correct order.</li>
-</ul>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;()&quot;</span><br><span class="line">Output: true</span><br><span class="line"></span><br><span class="line">Input: &quot;()[]&#123;&#125;&quot;</span><br><span class="line">Output: true</span><br><span class="line"></span><br><span class="line">Input: &quot;(]&quot;</span><br><span class="line">Output: false</span><br><span class="line"></span><br><span class="line">Input: &quot;([)]&quot;</span><br><span class="line">Output: false</span><br><span class="line"></span><br><span class="line">Input: &quot;&#123;[]&#125;&quot;</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
+        <h2 id="解决问题的最好方式就是直面他！维护庞大的-PHP-应用并不简单"><a href="#解决问题的最好方式就是直面他！维护庞大的-PHP-应用并不简单" class="headerlink" title="解决问题的最好方式就是直面他！维护庞大的 PHP 应用并不简单"></a>解决问题的最好方式就是直面他！维护庞大的 PHP 应用并不简单</h2><p><img src="https://cdn-images-1.medium.com/max/1000/1*v7A8M9c4RMZMobcL6fJLZg.png" alt></p>
+<p>我们都知道，Laravel 是目前最流行的 PHP 框架。它的目录结构很好，组织良好，定义明确，而且很简单。在处理中小型项目时，使用 Laravel 提供的默认项目结构绝对没问题。但是，当它是一个拥有 50 多个模型的大型应用程序时，我们就会开始对自己的代码库感到窒息。</p>
+<p>维护大型应用程序可不是闹着玩的。尤其是在组织不合理的情况下。而 Laravel 的默认结构对于这种情况肯定没有多大帮助。</p>
 <a id="more"></a>
-<h3 id="Emphasis"><a href="#Emphasis" class="headerlink" title="Emphasis"></a>Emphasis</h3><p>给定字符串判断其中各种括号是否书写是否正确</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Hash table that takes care of the mappings.</span></span><br><span class="line">  <span class="keyword">private</span> HashMap&lt;Character, Character&gt; mappings;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Initialize hash map with mappings. This simply makes the code easier to read.</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Solution</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.mappings = <span class="keyword">new</span> HashMap&lt;Character, Character&gt;();</span><br><span class="line">    <span class="keyword">this</span>.mappings.put(<span class="string">')'</span>, <span class="string">'('</span>);</span><br><span class="line">    <span class="keyword">this</span>.mappings.put(<span class="string">'&#125;'</span>, <span class="string">'&#123;'</span>);</span><br><span class="line">    <span class="keyword">this</span>.mappings.put(<span class="string">']'</span>, <span class="string">'['</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化一个栈实例</span></span><br><span class="line">    Stack&lt;Character&gt; stack = <span class="keyword">new</span> Stack&lt;Character&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">      <span class="keyword">char</span> c = s.charAt(i);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 如果当前括号为闭合号</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.mappings.containsKey(c)) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 得出最高栈元素 如果该栈为空, 设置值为#</span></span><br><span class="line">        <span class="keyword">char</span> topElement = stack.empty() ? <span class="string">'#'</span> : stack.pop();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果当前括号与最高栈元素不匹配，返回false</span></span><br><span class="line">        <span class="keyword">if</span> (topElement != <span class="keyword">this</span>.mappings.get(c)) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 如果这是个开括号，推入栈</span></span><br><span class="line">        stack.push(c);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果该栈仍包含元素，则无效</span></span><br><span class="line">    <span class="keyword">return</span> stack.isEmpty();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不过，首先，让我们看看默认项目结构，还有当它变大时会发生什么？</p>
+<p>Laravel 的默认项目结构像这样 -</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">|- app/</span><br><span class="line">   |- Console/</span><br><span class="line">      |- Commands/</span><br><span class="line">   |- Events/</span><br><span class="line">   |- Exceptions/</span><br><span class="line">   |- Http/</span><br><span class="line">      |- Controllers/</span><br><span class="line">      |- Middleware/</span><br><span class="line">   |- Jobs/</span><br><span class="line">   |- Listeners/</span><br><span class="line">   |- Providers/</span><br><span class="line">   |- User.php</span><br><span class="line">|- database/</span><br><span class="line">   |- factories/</span><br><span class="line">   |- migrations/</span><br><span class="line">   |- seeders</span><br><span class="line">|- config/</span><br><span class="line">|- routes/</span><br><span class="line">|- resources/</span><br><span class="line">   |- assets/</span><br><span class="line">   |- lang/</span><br><span class="line">   |- views/</span><br></pre></td></tr></table></figure>
+<p>结构没有问题。但是，当我们在一个大的应用程序中工作;我们通常将业务逻辑划分为库、转换程序等……就像下面这样 -</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">|- app/</span><br><span class="line">   |- Console/</span><br><span class="line">      |- Commands/</span><br><span class="line">   |- Events/</span><br><span class="line">   |- Exceptions/</span><br><span class="line">   |- Http/</span><br><span class="line">      |- Controllers/</span><br><span class="line">      |- Middleware/</span><br><span class="line">   |- Jobs/</span><br><span class="line">   |- Listeners/</span><br><span class="line">   |- Models/</span><br><span class="line">   |- Presenters/</span><br><span class="line">   |- Providers/</span><br><span class="line">   |- Repositories/</span><br><span class="line">   |- Services/</span><br><span class="line">   |- Transformers/</span><br><span class="line">   |- Validators/</span><br><span class="line">|- database/</span><br><span class="line">   |- factories/</span><br><span class="line">   |- migrations/</span><br><span class="line">   |- seeders</span><br><span class="line">|- config/</span><br><span class="line">|- routes/</span><br><span class="line">|- resources/</span><br><span class="line">   |- assets/</span><br><span class="line">   |- lang/</span><br><span class="line">   |- views/</span><br></pre></td></tr></table></figure>
+<p>对于 Laravel 来说，这明显是一个很好的结构，再来看看模型文件夹 -</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">|- app/</span><br><span class="line">  |- Models/</span><br><span class="line">     |- User.php</span><br><span class="line">     |- Role.php</span><br><span class="line">     |- Permission.php</span><br><span class="line">     |- Merchant.php</span><br><span class="line">     |- Store.php</span><br><span class="line">     |- Product.php</span><br><span class="line">     |- Category.php</span><br><span class="line">     |- Tag.php</span><br><span class="line">     |- Client.php</span><br><span class="line">     |- Delivery.php</span><br><span class="line">     |- Invoice.php</span><br><span class="line">     |- Wallet.php</span><br><span class="line">     |- Payment.php</span><br><span class="line">     |- Report.php</span><br></pre></td></tr></table></figure>
+<p>这并不算糟糕，我们还有处理所有业务逻辑的服务。还有 Repository、Transformer、Validators 文件夹，其中包含相同或更多的类。但是，处理单个实体/模型需要在不同的文件夹和文件中切换。有些人可能会觉得很累，但其他人仍然没有问题。</p>
+<blockquote>
+<p>问题不在于开发时频繁地切换不同的文件夹，而是在于维护代码和服务间的通信</p>
+</blockquote>
+<p>让我们分析下代码库，能够得出什么结论 -</p>
+<ul>
+<li><p>这是一个<strong>庞大的</strong>项目</p>
+</li>
+<li><p>难以<strong>维护</strong>（对于某些开发者而言）</p>
+</li>
+<li><p><strong>生产率</strong>变低（需要去全程考虑内联关系）</p>
+</li>
+<li><strong>拓展性</strong>也是一个问题</li>
+</ul>
+<p>解决方案很明显 - 微服务。即使我们使用 SOA(Service Oriented Architecture), 我们仍要将一个庞大的应用分成独立的小部分，来分别管理它们。</p>
+<p>通常，分离一个服务需要两个简单步骤 -</p>
+<ul>
+<li><p>将服务的子应用程序(模型、库、转换程序等)移动到一个新的更小的 PHP 微服务应用程序中。</p>
+</li>
+<li><p>重构服务函数调用，将目标重定向到微服务(例如，创建 HTTP 请求)。</p>
+</li>
+</ul>
+<p>但是现在你需要找到与该服务相关的所有文件。令人惊讶的是，你可能会发现，除了服务，你已经在其他地方使用了它的模型或库(我以前这样做过)。但这不是唯一的问题，还有更多。如果我们把它们加起来 -</p>
+<ul>
+<li><p>大量的文件需要进行考量</p>
+</li>
+<li><p>犯错的几率大大增加</p>
+</li>
+<li><p>增大开发者的困惑</p>
+</li>
+<li><p>有时需要重新考虑域名逻辑</p>
+</li>
+<li><p>相当于跟新开发者说：“R.I.P”</p>
+</li>
+</ul>
+<p>最后一个原因非常重要，因为新开发人员很难在短时间内掌握整个应用程序。但是，项目经理不会给他太多的时间。这将导致 “Monkey Patching”，错误的代码放置，下一个新开发人员将更加困惑。</p>
+<p>幸运的是，我们已经有了一个解决方案 – HMVC。将整个应用程序分成更小的部分，每个部分都有自己的文件和文件夹，比如 #app/ folder#，并通过 #composer.json# 自动加载，如下所示 -</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">|- auth/</span><br><span class="line">   |- Exceptions/</span><br><span class="line">   |- Http/</span><br><span class="line">   |- Listeners/</span><br><span class="line">   |- Models/</span><br><span class="line">   |- Presenters/</span><br><span class="line">   |- Providers/</span><br><span class="line">   |- Repositories/</span><br><span class="line">   |- Services/</span><br><span class="line">   |- Transformers/</span><br><span class="line">   |- Validators/</span><br><span class="line">|- merchant/</span><br><span class="line">   |- Console/</span><br><span class="line">   |- Events/</span><br><span class="line">   |- Exceptions/</span><br><span class="line">   |- Http/</span><br><span class="line">   |- Jobs/</span><br><span class="line">   |- Listeners/</span><br><span class="line">   |- Models/</span><br><span class="line">   |- Presenters/</span><br><span class="line">   |- Providers/</span><br><span class="line">   |- Repositories/</span><br><span class="line">   |- Services/</span><br><span class="line">   |- Transformers/</span><br><span class="line">   |- Validators/</span><br><span class="line">|- database/</span><br><span class="line">   |- factories/</span><br><span class="line">   |- migrations/</span><br><span class="line">   |- seeders</span><br><span class="line">|- config/</span><br><span class="line">|- routes/</span><br><span class="line">|- resources/</span><br><span class="line">   |- assets/</span><br><span class="line">   |- lang/</span><br><span class="line">   |- views/</span><br></pre></td></tr></table></figure>
+<p>但是 HMVC 增加了复杂性，当我们想把一个特定的模块移动到一个微服务;我们仍然需要将控制器、中间件等保存在主代码库中。大多数时候，迁移到微服务需要重新定义路由和控制器。因此，我们必须做冗余的工作。所以我不太喜欢这种结构。因为，我只想分离我(必须)要分离的东西，而不想再分离任何东西。</p>
+<h3 id="域名驱动设计-DDD-可以作为一种解决方案"><a href="#域名驱动设计-DDD-可以作为一种解决方案" class="headerlink" title="域名驱动设计(DDD)可以作为一种解决方案"></a>域名驱动设计(DDD)可以作为一种解决方案</h3><p>没有完美的解决方案。一切都是有代价的。但每个人都有自己的偏好。我不打算在这里讨论域名驱动设计(DDD)。<a href="https://medium.com/@developeruldeserviciu" target="_blank" rel="noopener">Developerul DeLaUnu</a> 在这里对 DDD 做了很好的描述。<br>在我看来，DDD(可以)将您的 Laravel 应用程序构造成 4 个部分( 或许是 3…看看如何)-</p>
+<p>应用 – 通常有，控制器，中间件，路由</p>
+<p>域名 – 通常包含业务逻辑(模型、存储库、转换器、策略等)。</p>
+<p>基础设施 – 通常包含普通的服务，如日志、电子邮件等。</p>
+<p>接口 – 通常包含视图、lang 和 asset。</p>
+<p>如果这像这简单，那么为什么我们不像这样构造应用程序并使用名称空间呢?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">|- app/</span><br><span class="line">   |- Http/ (Application)</span><br><span class="line">      |- Controllers/</span><br><span class="line">      |- Middleware/</span><br><span class="line">|- Domain/</span><br><span class="line">   |- Models/</span><br><span class="line">   |- Repositories/</span><br><span class="line">   |- Presenters/</span><br><span class="line">   |- Transformers/</span><br><span class="line">   |- Validators/</span><br><span class="line">   |- Services/</span><br><span class="line">|- Infrastructure/</span><br><span class="line">   |- Console/</span><br><span class="line">   |- Exceptions/</span><br><span class="line">   |- Providers/</span><br><span class="line">   |- Events/</span><br><span class="line">   |- Jobs/</span><br><span class="line">   |- Listeners/</span><br><span class="line">|- resources/ (Interface)</span><br><span class="line">   |- assets/</span><br><span class="line">   |- lang/</span><br><span class="line">   |- views/</span><br><span class="line">|- routes/</span><br><span class="line">   |- api.php</span><br><span class="line">   |- web.php</span><br></pre></td></tr></table></figure>
+<p>因为，将项目分目录并不会起作用，这意味着 – 我们除了一个命名空间什么也没加</p>
+<h3 id="真相时刻"><a href="#真相时刻" class="headerlink" title="真相时刻"></a>真相时刻</h3><p>到这，你可能已经不耐烦了，想要看看真正的解决方案。所以，请看这 -</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">|- app/</span><br><span class="line">   |- Http/</span><br><span class="line">      |- Controllers/</span><br><span class="line">      |- Middleware/</span><br><span class="line">   |- Providers/</span><br><span class="line">   |- Account/</span><br><span class="line">      |- Console/</span><br><span class="line">      |- Exceptions/</span><br><span class="line">      |- Events/</span><br><span class="line">      |- Jobs/</span><br><span class="line">      |- Listeners/</span><br><span class="line">      |- Models/</span><br><span class="line">         |- User.php</span><br><span class="line">         |- Role.php</span><br><span class="line">         |- Permission.php</span><br><span class="line">      |- Repositories/</span><br><span class="line">      |- Presenters/</span><br><span class="line">      |- Transformers/</span><br><span class="line">      |- Validators/</span><br><span class="line">      |- Auth.php</span><br><span class="line">      |- Acl.php</span><br><span class="line">   |- Merchant/</span><br><span class="line">   |- Payment/</span><br><span class="line">   |- Invoice/</span><br><span class="line">|- resources/</span><br><span class="line">|- routes/</span><br></pre></td></tr></table></figure>
+<p>在 #app/Account/ 文件夹中，Auth.php 和 Acl.php 是服务类文件, 控制器只会获取这两个类并调用它们的方法，其它类（域名之外的类）永远都不知道 #app/Account/ 文件夹下的剩下的类。这些服务类里的方法只会接收到基础的 PHP 类型，如 #数组#， #字符串#， #数字#， #布尔型# 和 POPO （Plain Old PHP Object), 而没有类实例，例如 -</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">public function register(array $attr) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">public function login(array $credentials) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">public function logout() &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>注意，register 函数接收的是属性数组，而不是 User 对象。这一点很重要，因为调用函数的另一个类并不知道用户模型的存在。这是整个结构的基本规则。</p>
+<p>当我们想要分开代码时,我们的应用程序变得很大，我们希望将帐户域名分离到一个单独的微服务，并将其转换为 OAuth 服务器。</p>
+<p>所以，我们只改动以下部分 -</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">|- Account/</span><br><span class="line">   |- Console/</span><br><span class="line">   |- Exceptions/</span><br><span class="line">   |- Events/</span><br><span class="line">   |- Jobs/</span><br><span class="line">   |- Listeners/</span><br><span class="line">   |- Models/</span><br><span class="line">      |- User.php</span><br><span class="line">      |- Role.php</span><br><span class="line">      |- Permission.php</span><br><span class="line">   |- Repositories/</span><br><span class="line">   |- Presenters/</span><br><span class="line">   |- Transformers/</span><br><span class="line">   |- Validators/</span><br><span class="line">   |- Auth.php</span><br><span class="line">   |- Acl.php</span><br><span class="line">|- routes/</span><br><span class="line">|- resources/</span><br></pre></td></tr></table></figure>
+<p>当然，我们必须在控制器和路由中编写代码，因为我们需要使它成为 OAuth 服务器。</p>
+<p>但是我们需要在主代码库中做什么更改呢?</p>
+<p>我们只保留服务文件 Auth.php 和 Acl.php，并将它们函数中的代码更改为针对新创建的微服务的 HTTP 请求(或其他类似消息传递的方法)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">public function login(array $credentials) &#123;</span><br><span class="line"> // change the code here</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>整个应用不会变动，而构造会变成这样 -</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">|- app/</span><br><span class="line">   |- Console/</span><br><span class="line">   |- Exceptions/</span><br><span class="line">   |- Http/</span><br><span class="line">      |- Controllers/</span><br><span class="line">      |- Middleware/</span><br><span class="line">   |- Providers/</span><br><span class="line">   |- Account/</span><br><span class="line">      |- Auth.php</span><br><span class="line">      |- Acl.php</span><br><span class="line">   |- Merchant/</span><br><span class="line">   |- Payment/</span><br><span class="line">   |- Invoice/</span><br><span class="line">|- resources/</span><br><span class="line">|- routes/</span><br></pre></td></tr></table></figure>
+<p>这样，你就可以将代码的一部分转移到一个完全独立的微服务中。在将一部分代码迁移到微服务时，我想不出有什么其他方法可以做得尽可能少。</p>
+<h3 id="权衡"><a href="#权衡" class="headerlink" title="权衡"></a>权衡</h3><p>就像我之前说的，每件事都应加以权衡，这个解决方案也一样。这里我们有一个关于迁移的问题!因为在上面的文件夹结构中(分离之前)，所有迁移文件都位于数据库 #/migration /#目录中。但是当我们想要分离一个域名时，我们也需要识别并改动该域名的迁移。这可能很难，因为我们没有任何明确的迹象表明哪个迁移属于哪个域名。我们知道如何在迁移文件中放入标识符。</p>
+<p>该标识符可以是域前缀。例如，我们可以将迁移文件命名为 xxxxxxxxx_create_account_users_table.php，而不是 xxxxxxxxx_create_users_table.php。如果需要，还可以使用 account_users 表名代替 users。我更喜欢在分离期间确定要移动哪些表。分离迁移文件可能有点令人沮丧，但如果使用前缀或任何类型的标记，这个过程肯定不会那么痛苦。</p>
+<p>我仍然在尝试这种结构，并计划构建一个 Laravel 包，它将提供 artisan 命令来自动生成和分离文件。完成后，我将在这里添加 package 链接。</p>
+<p>在那之前，请分享你的反馈，因为我需要帮助找到最好的解决方案。</p>
+<p>祝你今天愉快:)</p>
+<p>原文出处：<a href="https://medium.com/@munza/large-scale-laravel-application-9d52c3d38e51" target="_blank" rel="noopener">https://medium.com/@munza/large-scale-laravel-application-9d52c3d38e51</a></p>
 
       
 
@@ -223,15 +294,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Algorithms</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Laravel</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Daily</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">译文</a>
         		</li>
       		
 		</ul>
@@ -287,7 +354,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/18/[algorithms]Valid-Parentheses190317/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/19/Large-Scale-Laravel-Application/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -301,18 +368,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/19/Large-Scale-Laravel-Application/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/19/[algorihtms]Merge-Two-Sorted-Lists190318/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          怎样设计大型 Laravel 项目结构？
+          Algorithms 21 Merge Two Sorted Lists
         
       </div>
     </a>
   
   
-    <a href="/2019/03/17/[algorithms]Longest-Common-Prefix190316/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Algorithms 14. Longest Common Prefix</div>
+    <a href="/2019/03/18/[algorithms]Valid-Parentheses190317/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Algorithms 20 Valid Parantheses</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -331,19 +398,6 @@
             </div>
         </div>
         
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example"><span class="toc-number">1.1.</span> <span class="toc-text">Example</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Emphasis"><span class="toc-number">1.2.</span> <span class="toc-text">Emphasis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
         
     </div>
 </aside>
