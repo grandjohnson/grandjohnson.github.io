@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Tricks | Plogger</title>
+  <title>A taste of ADT and some lists | Plogger</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Blog for logging">
-<meta name="keywords" content="PHP,Java,Linux,mysql,develop,代码,编程,开源,开发者,程序员,vuejs">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Plogger">
-<meta property="og:url" content="http://yoursite.com/tags/Tricks/index.html">
+  <meta name="description" content="抽象数据类型(ADT) 抽象数据类型( abstract data type, ADT)是带有一组操作的一些对象的集合  表 ADT 数组相对链表在 insert 和 delete 操作上潜藏着昂贵的开销，但 get 和 set 方法的调用花费常数时间  让每一个节点持有一个指向它在表中的前驱结点的链，称之为 双链表 (double linked list)">
+<meta name="keywords" content="Data-Structures,Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A taste of ADT and some lists">
+<meta property="og:url" content="http://yoursite.com/2019/03/21/A-taste-of-ADT-and-some-lists190320/index.html">
 <meta property="og:site_name" content="Plogger">
-<meta property="og:description" content="Blog for logging">
+<meta property="og:description" content="抽象数据类型(ADT) 抽象数据类型( abstract data type, ADT)是带有一组操作的一些对象的集合  表 ADT 数组相对链表在 insert 和 delete 操作上潜藏着昂贵的开销，但 get 和 set 方法的调用花费常数时间  让每一个节点持有一个指向它在表中的前驱结点的链，称之为 双链表 (double linked list)">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-20T14:40:34.670Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Plogger">
-<meta name="twitter:description" content="Blog for logging">
+<meta name="twitter:title" content="A taste of ADT and some lists">
+<meta name="twitter:description" content="抽象数据类型(ADT) 抽象数据类型( abstract data type, ADT)是带有一组操作的一些对象的集合  表 ADT 数组相对链表在 insert 和 delete 操作上潜藏着昂贵的开销，但 get 和 set 方法的调用花费常数时间  让每一个节点持有一个指向它在表中的前驱结点的链，称之为 双链表 (double linked list)">
   
     <link rel="alternative" href="/atom.xml" title="Plogger" type="application/atom+xml">
   
@@ -158,106 +159,192 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-A-taste-of-ADT-and-some-lists190320" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/10/My-first-post/" class="archive-article-date">
-  	<time datetime="2019-03-10T12:03:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/10/My-first-post/">My first post</a>
+    <h1 class="article-title" itemprop="name">
+      A taste of ADT and some lists
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/21/A-taste-of-ADT-and-some-lists190320/" class="archive-article-date">
+  	<time datetime="2019-03-20T22:49:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="抽象数据类型-ADT"><a href="#抽象数据类型-ADT" class="headerlink" title="抽象数据类型(ADT)"></a>抽象数据类型(ADT)</h2><blockquote>
+<p>抽象数据类型( abstract data type, ADT)是带有一组操作的一些对象的集合</p>
+</blockquote>
+<h2 id="表-ADT"><a href="#表-ADT" class="headerlink" title="表 ADT"></a>表 ADT</h2><ul>
+<li><p>数组相对链表在 <strong>insert</strong> 和 <strong>delete</strong> 操作上潜藏着昂贵的开销，但 get 和 set 方法的调用花费常数时间</p>
+</li>
+<li><p>让每一个节点持有一个指向它在表中的前驱结点的链，称之为 <strong>双链表</strong> (double linked list)</p>
+</li>
+</ul>
+<a id="more"></a>
+<h2 id="Java-Collection-API-中的表"><a href="#Java-Collection-API-中的表" class="headerlink" title="Java Collection API 中的表"></a>Java Collection API 中的表</h2><h3 id="Collection-接口"><a href="#Collection-接口" class="headerlink" title="Collection 接口"></a>Collection 接口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// java.util 包中 Collection 接口的子集</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Collection</span>&lt;<span class="title">AnyType</span>&gt; <span class="keyword">extends</span> <span class="title">Iterable</span>&lt;<span class="title">AnyType</span>&gt;</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(AnyType x)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(AnyType x)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(AnyType x)</span></span>;</span><br><span class="line">    java.util.<span class="function">Iterator&lt;AnyType&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Collection 接口扩展了 Iterator 接口，实现了 Iterator 的类可以增强的 for 循环 -</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;AnyType&gt; <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(Collection&lt;AnyType&gt; coll)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (AnyType item : coll)</span><br><span class="line">        System.out.println(item);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Iterator-接口"><a href="#Iterator-接口" class="headerlink" title="Iterator 接口"></a>Iterator 接口</h3><p>Iterator 接口的思路是，通过 iterator 方法，每个集合均可创建并返回给客户一个实现 Iterator 接口的对象，并将当前位置的概念在对象内部储存下来。因此，</p>
+<p><strong>实现 Iterator 接口的集合必须提供一个成为 iterator 的方法，该方法返回一个 Iterator 对象</strong></p>
+<p><strong>_注意_</strong>： 当直接使用 Iterator （而不是通过一个增强的 for 循环间接使用）时，如果对正在迭代的集合进行结构上的改变（add, remove 或 clear 方法），迭代器不再合法，并抛出 ModificationException 异常。所以为何不同 Iterator 自己的 remove 方法呢？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterator</span>&lt;<span class="title">AnyType</span>&gt;</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">AnyType <span class="title">next</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Example : remove 方法在 LinkedList 类上的使用</p>
+<blockquote>
+<p>将一个表中具有偶数值的项去除</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//删除表中的偶数，对 Array List 消耗时间是二次的，而 LinkedList 是线性的</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">removeEvent</span><span class="params">(List&lt;Integer&gt; <span class="number">1</span>st)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Iterator&lt;Integer&gt; itr = <span class="number">1</span>st.iterator();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (itr.hasNext())</span><br><span class="line">        <span class="keyword">if</span> (itr.next() % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">            itr.remove();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Data-Structures</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tricks</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/21/A-taste-of-ADT-and-some-lists190320/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/10/配置 Hexo 免密 hexo deploy/" class="archive-article-date">
-  	<time datetime="2019-03-10T12:03:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-10</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/21/[alogrihtms]Remove-Element190320/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Algorithms 1. Tow Sum</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/10/配置 Hexo 免密 hexo deploy/">Github Deploy Key 操作如何避免输密码</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tricks</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -280,9 +367,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
