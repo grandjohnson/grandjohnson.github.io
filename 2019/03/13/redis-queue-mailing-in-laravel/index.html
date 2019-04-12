@@ -179,7 +179,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="先安装依赖"><a href="#先安装依赖" class="headerlink" title="先安装依赖"></a>先安装依赖</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> composer require <span class="string">"predis/predis:~1.0"</span></span></span><br></pre></td></tr></table></figure>
+        <h2 id="先安装依赖"><a href="#先安装依赖" class="headerlink" title="先安装依赖"></a>先安装依赖</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> composer require "predis/predis:~1.0"</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="配置config-queue-php"><a href="#配置config-queue-php" class="headerlink" title="配置config/queue.php"></a>配置<code>config/queue.php</code></h2><blockquote>
 <p>设置默认驱动为 Redis</p>
@@ -188,7 +188,7 @@
 <blockquote>
 <p>创建失败进程记录表（失败任务达到最大尝试次数，添加到 failed_job 表中）</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> php artisan queue:failed-table</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> php artisan migrate</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> php artisan queue:failed-table</span><br><span class="line"><span class="meta">$</span> php artisan migrate</span><br></pre></td></tr></table></figure>
 <h2 id="使用-Laravel-封装好的邮件类发送邮件并加入队列"><a href="#使用-Laravel-封装好的邮件类发送邮件并加入队列" class="headerlink" title="使用 Laravel 封装好的邮件类发送邮件并加入队列"></a>使用 Laravel 封装好的邮件类发送邮件并加入队列</h2><blockquote>
 <p>先创建 SendEmail job</p>
 </blockquote>
@@ -449,6 +449,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Data-Structures</a>
               </li>
              
@@ -458,14 +466,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Interview</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,6 +493,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Queue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MVC</a>
               </li>
              
@@ -502,10 +506,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">译文</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Queue</a>
               </li>
             
             <div class="clearfix"></div>

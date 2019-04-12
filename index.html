@@ -160,6 +160,258 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-simple-sql-optimization" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/13/simple-sql-optimization/">提升mysql性能，性能优化</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/13/simple-sql-optimization/" class="archive-article-date">
+  	<time datetime="2019-04-12T21:49:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、缓存。缓存是解决这类问题的一把手。它既可以加快整个系统（并非数据库系统，使用缓存的时候并没有去访问数据库）的访问速度，也可以减少数据库负载的压力。而缓存一般都是在查询中使用，我们并不希望每一次的查询都要去访问数据库。那么我们的缓存做到哪里呢？一般情况下版的系统都会存在服务层这一结构层次，而数据访问层一般都只是对于数据库的增删改查的接口的定义，所以我们的缓存就需要在服务层进行。而 mybatis 中的一级缓存，通过判断查询条件是否要访问数据库，查询条件与某一次相同，则直接返回缓存中的数据，查询条件不同则需要访问数据库，并且将结果放到缓存中。</p>
+<p>2、当只需要一条数据时使用 LIMIT 1.我们作为开发者，是能够知道我们需要的数据的条数的，若已经知道结果只有一条的时候，一定要使用 limit 1 ，这样一来，MySQL 在查询到一条数据之后，会立即停止搜索，这会带来性能上的提升。</p>
+        
+          <a class="article-more-a" href="/2019/04/13/simple-sql-optimization/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/13/simple-sql-optimization/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-[algorithms]Implement strStr()190323" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/24/[algorithms]Implement strStr()190323/">Algorithms 14. Longest Common Prefix</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/24/[algorithms]Implement strStr()190323/" class="archive-article-date">
+  	<time datetime="2019-03-23T22:49:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>Input: haystack = “hello”, needle = “ll”<br>Output: 2</p>
+<p>Input: haystack = “aaaaa”, needle = “bba”<br>Output: -1</p>
+<h3 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h3><p>What should we return when needle is an empty string? This is a great question to ask during an interview.</p>
+<p>For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C’s strstr() and Java’s indexOf().</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">strStr</span><span class="params">(String haystack, String needle)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; ; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; ; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (j == needle.length()) <span class="keyword">return</span> i;</span><br><span class="line">      <span class="keyword">if</span> (i + j == haystack.length()) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span> (needle.charAt(j) != haystack.charAt(i + j)) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Daily</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/24/[algorithms]Implement strStr()190323/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Do-not-run-composer-as-root-user" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/22/Do-not-run-composer-as-root-user/">Do not run composer as a root/super user 及 缺少ext-zip包问题</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/22/Do-not-run-composer-as-root-user/" class="archive-article-date">
+  	<time datetime="2019-03-21T21:03:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Do-not-run-composer-as-a-root-super-user"><a href="#Do-not-run-composer-as-a-root-super-user" class="headerlink" title="Do not run composer as a root/super user"></a>Do not run composer as a root/super user</h2><p>今天部署了一个 Laravel 应用到阿里云的服务器上，但在运行 composer 的时候跳出了一个 warning(平时忙着做其他的事，warning 只好忽略了)</p>
+<blockquote>
+<p>Do not run Composer as root/super user! See <a href="https://getcomposer.org/root" target="_blank" rel="noopener">https://getcomposer.org/root</a> for details</p>
+</blockquote>
+<p>composer 官方给出的解释是：<br>Certain Composer commands, including exec, install, and update allow third party code to execute on your system. This is from its “plugins” and “scripts” features. Plugins and scripts have full access to the user account which runs Composer. For this reason, it is strongly advised to avoid running Composer as super-user/root.</p>
+<p>主要讲不建议使用第三方的插件或者脚本以 root 用户运行 composer</p>
+<p>而使用以下命令可以防止第三方代码在 composer 工作时执行 -</p>
+<p>You can disable plugins and scripts during package installation or updates with the following syntax so only Composer’s code, and no third party code, will execute:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">composer install --no-plugins --no-scripts ...</span><br><span class="line">composer update --no-plugins --no-scripts ...</span><br></pre></td></tr></table></figure>
+<p>而你想用持续集成系统(CI, continuous integration)来进行自动化部署时，执行以上代码是最安全的方式</p>
+<p>In some cases, like in CI systems or such where you want to install untrusted dependencies, the safest way to do it is to run the above command.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Laravel</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/22/Do-not-run-composer-as-root-user/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-A-taste-of-ADT-and-some-lists190320" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -763,257 +1015,6 @@
 
 
   
-    <article id="post-why-ORM-should-not-be-your-best-bet" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/17/why-ORM-should-not-be-your-best-bet/">为什么 ORM 不应该成为最佳选择</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/17/why-ORM-should-not-be-your-best-bet/" class="archive-article-date">
-  	<time datetime="2019-03-16T22:27:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>这几年在 web 领域，MVC 模式为主要的企业系统架构模式，<a href="https://baike.baidu.com/item/%E6%8C%81%E4%B9%85%E5%8C%96/6726574?fr=aladdin" target="_blank" rel="noopener">持久化</a>设计(persistence)实现了数据处理内部的业务逻辑和数据逻辑分离的解耦合(loose coupling)，而 ORM 作为这其中最复杂也最重要的热点技术，有的人却又不同见解。。。</em></p>
-<h2 id="为什么-ORM-不应该成为你的最佳选择？"><a href="#为什么-ORM-不应该成为你的最佳选择？" class="headerlink" title="为什么 ORM 不应该成为你的最佳选择？"></a>为什么 ORM 不应该成为你的最佳选择？</h2>
-        
-          <a class="article-more-a" href="/2019/03/17/why-ORM-should-not-be-your-best-bet/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">译文</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/17/why-ORM-should-not-be-your-best-bet/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-[algorithms]Roman-to-integer190315" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/16/[algorithms]Roman-to-integer190315/">Algorithms 13. Roman to integer</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/16/[algorithms]Roman-to-integer190315/" class="archive-article-date">
-  	<time datetime="2019-03-15T22:10:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Symbol       Value</span><br><span class="line">I             1</span><br><span class="line">V             5</span><br><span class="line">X             10</span><br><span class="line">L             50</span><br><span class="line">C             100</span><br><span class="line">D             500</span><br><span class="line">M             1000</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/03/16/[algorithms]Roman-to-integer190315/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Algorithms</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Daily</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/16/[algorithms]Roman-to-integer190315/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-[algorithms]Palindrome-Number190314" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/15/[algorithms]Palindrome-Number190314/">Algorithms 9. Palindrome Number</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/15/[algorithms]Palindrome-Number190314/" class="archive-article-date">
-  	<time datetime="2019-03-14T22:10:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.</p>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Input: <span class="number">121</span></span><br><span class="line">Output: <span class="keyword">true</span></span><br><span class="line"></span><br><span class="line">Input: -<span class="number">121</span></span><br><span class="line">Output: <span class="keyword">false</span></span><br><span class="line">Explanation: From left to right, it reads -<span class="number">121</span>. From right to left, it becomes <span class="number">121</span>-. Therefore it is not a palindrome.</span><br><span class="line"></span><br><span class="line">Input: -<span class="number">121</span></span><br><span class="line">Output: <span class="keyword">false</span></span><br><span class="line">Explanation: From left to right, it reads -<span class="number">121</span>. From right to left, it becomes <span class="number">121</span>-. Therefore it is not a palindrome.</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/03/15/[algorithms]Palindrome-Number190314/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Algorithms</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Daily</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/15/[algorithms]Palindrome-Number190314/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1111,6 +1112,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Data-Structures</a>
               </li>
              
@@ -1120,14 +1129,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Interview</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1155,6 +1156,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Queue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MVC</a>
               </li>
              
@@ -1164,10 +1169,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">译文</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Queue</a>
               </li>
             
             <div class="clearfix"></div>

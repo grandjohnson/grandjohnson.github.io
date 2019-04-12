@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 译文 | Plogger</title>
+  <title>Algorithms 14. Longest Common Prefix | Plogger</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Blog for logging">
-<meta name="keywords" content="PHP,Java,Linux,mysql,develop,代码,编程,开源,开发者,程序员,vuejs">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Plogger">
-<meta property="og:url" content="http://yoursite.com/tags/译文/index.html">
+  <meta name="description" content="DescriptionReturn the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. ExampleInput: haystack = “hello”, needle = “ll”Output: 2 Input: haystack = “aaaaa”,">
+<meta name="keywords" content="Java,Algorithms,Daily">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Algorithms 14. Longest Common Prefix">
+<meta property="og:url" content="http://yoursite.com/2019/03/24/[algorithms]Implement strStr()190323/index.html">
 <meta property="og:site_name" content="Plogger">
-<meta property="og:description" content="Blog for logging">
+<meta property="og:description" content="DescriptionReturn the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. ExampleInput: haystack = “hello”, needle = “ll”Output: 2 Input: haystack = “aaaaa”,">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-23T13:47:52.509Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Plogger">
-<meta name="twitter:description" content="Blog for logging">
+<meta name="twitter:title" content="Algorithms 14. Longest Common Prefix">
+<meta name="twitter:description" content="DescriptionReturn the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. ExampleInput: haystack = “hello”, needle = “ll”Output: 2 Input: haystack = “aaaaa”,">
   
     <link rel="alternative" href="/atom.xml" title="Plogger" type="application/atom+xml">
   
@@ -158,106 +159,202 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-[algorithms]Implement strStr()190323" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/19/Large-Scale-Laravel-Application/" class="archive-article-date">
-  	<time datetime="2019-03-18T22:27:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/19/Large-Scale-Laravel-Application/">怎样设计大型 Laravel 项目结构？</a>
+    <h1 class="article-title" itemprop="name">
+      Algorithms 14. Longest Common Prefix
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/24/[algorithms]Implement strStr()190323/" class="archive-article-date">
+  	<time datetime="2019-03-23T22:49:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>Input: haystack = “hello”, needle = “ll”<br>Output: 2</p>
+<p>Input: haystack = “aaaaa”, needle = “bba”<br>Output: -1</p>
+<h3 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h3><p>What should we return when needle is an empty string? This is a great question to ask during an interview.</p>
+<p>For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C’s strstr() and Java’s indexOf().</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">strStr</span><span class="params">(String haystack, String needle)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; ; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; ; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (j == needle.length()) <span class="keyword">return</span> i;</span><br><span class="line">      <span class="keyword">if</span> (i + j == haystack.length()) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span> (needle.charAt(j) != haystack.charAt(i + j)) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Laravel</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">译文</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Daily</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/24/[algorithms]Implement strStr()190323/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/17/why-ORM-should-not-be-your-best-bet/" class="archive-article-date">
-  	<time datetime="2019-03-16T22:27:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/04/13/simple-sql-optimization/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          提升mysql性能，性能优化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/22/Do-not-run-composer-as-root-user/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Do not run composer as a root/super user 及 缺少ext-zip包问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/17/why-ORM-should-not-be-your-best-bet/">为什么 ORM 不应该成为最佳选择</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">译文</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example"><span class="toc-number">1.1.</span> <span class="toc-text">Example</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Clarification"><span class="toc-number">1.2.</span> <span class="toc-text">Clarification</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -280,9 +377,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 译文 | Plogger</title>
+  <title>提升mysql性能，性能优化 | Plogger</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Blog for logging">
-<meta name="keywords" content="PHP,Java,Linux,mysql,develop,代码,编程,开源,开发者,程序员,vuejs">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Plogger">
-<meta property="og:url" content="http://yoursite.com/tags/译文/index.html">
+  <meta name="description" content="1、缓存。缓存是解决这类问题的一把手。它既可以加快整个系统（并非数据库系统，使用缓存的时候并没有去访问数据库）的访问速度，也可以减少数据库负载的压力。而缓存一般都是在查询中使用，我们并不希望每一次的查询都要去访问数据库。那么我们的缓存做到哪里呢？一般情况下版的系统都会存在服务层这一结构层次，而数据访问层一般都只是对于数据库的增删改查的接口的定义，所以我们的缓存就需要在服务层进行。而 mybatis">
+<meta name="keywords" content="Mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="提升mysql性能，性能优化">
+<meta property="og:url" content="http://yoursite.com/2019/04/13/simple-sql-optimization/index.html">
 <meta property="og:site_name" content="Plogger">
-<meta property="og:description" content="Blog for logging">
+<meta property="og:description" content="1、缓存。缓存是解决这类问题的一把手。它既可以加快整个系统（并非数据库系统，使用缓存的时候并没有去访问数据库）的访问速度，也可以减少数据库负载的压力。而缓存一般都是在查询中使用，我们并不希望每一次的查询都要去访问数据库。那么我们的缓存做到哪里呢？一般情况下版的系统都会存在服务层这一结构层次，而数据访问层一般都只是对于数据库的增删改查的接口的定义，所以我们的缓存就需要在服务层进行。而 mybatis">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-12T14:14:44.386Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Plogger">
-<meta name="twitter:description" content="Blog for logging">
+<meta name="twitter:title" content="提升mysql性能，性能优化">
+<meta name="twitter:description" content="1、缓存。缓存是解决这类问题的一把手。它既可以加快整个系统（并非数据库系统，使用缓存的时候并没有去访问数据库）的访问速度，也可以减少数据库负载的压力。而缓存一般都是在查询中使用，我们并不希望每一次的查询都要去访问数据库。那么我们的缓存做到哪里呢？一般情况下版的系统都会存在服务层这一结构层次，而数据访问层一般都只是对于数据库的增删改查的接口的定义，所以我们的缓存就需要在服务层进行。而 mybatis">
   
     <link rel="alternative" href="/atom.xml" title="Plogger" type="application/atom+xml">
   
@@ -158,106 +159,177 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-simple-sql-optimization" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/19/Large-Scale-Laravel-Application/" class="archive-article-date">
-  	<time datetime="2019-03-18T22:27:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/19/Large-Scale-Laravel-Application/">怎样设计大型 Laravel 项目结构？</a>
+    <h1 class="article-title" itemprop="name">
+      提升mysql性能，性能优化
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/04/13/simple-sql-optimization/" class="archive-article-date">
+  	<time datetime="2019-04-12T21:49:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、缓存。缓存是解决这类问题的一把手。它既可以加快整个系统（并非数据库系统，使用缓存的时候并没有去访问数据库）的访问速度，也可以减少数据库负载的压力。而缓存一般都是在查询中使用，我们并不希望每一次的查询都要去访问数据库。那么我们的缓存做到哪里呢？一般情况下版的系统都会存在服务层这一结构层次，而数据访问层一般都只是对于数据库的增删改查的接口的定义，所以我们的缓存就需要在服务层进行。而 mybatis 中的一级缓存，通过判断查询条件是否要访问数据库，查询条件与某一次相同，则直接返回缓存中的数据，查询条件不同则需要访问数据库，并且将结果放到缓存中。</p>
+<p>2、当只需要一条数据时使用 LIMIT 1.我们作为开发者，是能够知道我们需要的数据的条数的，若已经知道结果只有一条的时候，一定要使用 limit 1 ，这样一来，MySQL 在查询到一条数据之后，会立即停止搜索，这会带来性能上的提升。</p>
+<a id="more"></a>
+<p>3、避免 select _ ，取之所需。公司里的一些同事，无论查询什么都是直接 select _，然后再从结果中取想要的字段。这样做的话，平白无故的给 MySQL 带来了不必要的负担，因为从数据库中读出越多的数据，查询就会变得越慢。所以，以后看到 select *  的时候，想一下是否可以在这里进行一些优化。</p>
+<p>4、为每张表设置一个 id 作为其主键。这个 id 最好是一个 int 类型的，推荐使用 unsigned，并将其设置为自动增加 auto_increment。之前就出现过一个同事将 varchar 的字段作为主键的情况，  然后在数据量较大的时候，数据库这个环节速度变得不是很友好，所以尽量不要使用 varchar 来当主键，它会使得性能出现下降。而且在某些情况下，id 这个主键字段是非常重要的。</p>
+<p>5、使用 enum 而不是 varchar。实际上，enum 保存的是 tinyint 类型，但其显示为字符串。用这个字段来作一些选项列表就变得很合适了。比如你有一个字段，比如“性别”、“状态”或“所属部门”等，你知道这些字段的值是固定且有限的，那么可以考虑使用 enum。对于性别这个字段，一般分为两种，有可能还有保密这种情况，我们可以使用数字 1、2、3 来分别表示这三张情况，而对于这些数字含义的区分则是业务层的事情了。我们需要将一些繁琐的需要计算的步骤全部放到业务层（或者说是服务层），因为系统的瓶颈在数据库，我们不能将过多的计算过程压到数据库上面去。数据库存储的数据应该尽量简单，但是，我们会在业务层结合具体的业务，对这些简单的数据进行分析。</p>
+<p>6、尽可能的使用 not null。除非你有一个很特别的原因要去使用 null 值，你应该总让你的字段保持为 not null。</p>
+<p>7、选择正确的存储引擎。myisam 适合一些需要大量查询的应用。但其对于大量写操作并不是很好。因为它使用到的是表级锁，所以在你更新的时候，整张表都会被锁起来，试想一下，当你在更新某一行数据的时候，导致其他的行都无法被访问，这会不会   很难受呢。另外，myisam 对于 select count(*)这类操作的计算时很快的。而至于 innodb 而言，对于一些小的应用，它会比 myisam 还慢。它支持的是行级锁，于是写操作较多的时候，它会更加优秀。它还支持一些更高级的应用，比如说：事务。</p>
+<p>8、拆为搜索的字段建立索引。不要以为只有标的逐渐可以建立索引，如果某个字段你总要拿来做搜索，那么为它简历索引吧。但是，不要以为建立索引，就可以为所欲为。其中有一些常用的规则需要去遵循以下的。详情请见这篇博客：建立索引常用的规则。</p>
+<hr>
+<p>作者：送我一个微笑<br>来源：CSDN<br>原文：<a href="https://blog.csdn.net/h_h_v/article/details/79550748" target="_blank" rel="noopener">https://blog.csdn.net/h_h_v/article/details/79550748</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Laravel</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">译文</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/13/simple-sql-optimization/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/17/why-ORM-should-not-be-your-best-bet/" class="archive-article-date">
-  	<time datetime="2019-03-16T22:27:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/24/[algorithms]Implement strStr()190323/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Algorithms 14. Longest Common Prefix</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/17/why-ORM-should-not-be-your-best-bet/">为什么 ORM 不应该成为最佳选择</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">译文</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -280,9 +352,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

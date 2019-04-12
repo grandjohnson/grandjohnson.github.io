@@ -160,30 +160,32 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-配置 Hexo 免密 hexo deploy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Laravel-auto-deploy-with-envoyer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/10/配置 Hexo 免密 hexo deploy/">Github Deploy Key 操作如何避免输密码</a>
+      <a class="article-title" href="/2019/03/11/Laravel-auto-deploy-with-envoyer/">使用envoyer进行Laravel项目自动化部署</a>
     </h1>
   
 
         
-        <a href="/2019/03/10/配置 Hexo 免密 hexo deploy/" class="archive-article-date">
-  	<time datetime="2019-03-10T12:03:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-10</time>
+        <a href="/2019/03/11/Laravel-auto-deploy-with-envoyer/" class="archive-article-date">
+  	<time datetime="2019-03-10T22:27:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="生成-deploy-key"><a href="#生成-deploy-key" class="headerlink" title="生成 deploy key"></a>生成 deploy key</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -f ~/.ssh/deploy_key_repo1</span><br></pre></td></tr></table></figure>
-<h1 id="添加路径到认证列表"><a href="#添加路径到认证列表" class="headerlink" title="添加路径到认证列表"></a>添加路径到认证列表</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/deploy_key_repo1</span><br></pre></td></tr></table></figure>
+        <h2 id="首先安装依赖"><a href="#首先安装依赖" class="headerlink" title="首先安装依赖"></a>首先安装依赖</h2><blockquote>
+<p>composer global require laravel/envoy</p>
+</blockquote>
+<h2 id="在项目根目录下创建-Envoy-blade-php"><a href="#在项目根目录下创建-Envoy-blade-php" class="headerlink" title="在项目根目录下创建 Envoy.blade.php"></a>在项目根目录下创建 Envoy.blade.php</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@servers([<span class="string">'web'</span> =&gt; <span class="string">'root@47.99.47.169'</span>])</span><br><span class="line"></span><br><span class="line">@task(<span class="string">'deploy'</span>, [<span class="string">'on'</span> =&gt; [<span class="string">'web'</span>], <span class="string">'confirm'</span> =&gt; <span class="keyword">true</span>])</span><br><span class="line">cd /<span class="keyword">var</span>/www/laravel-blog-code</span><br><span class="line">git pull</span><br><span class="line">@endtask</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2019/03/10/配置 Hexo 免密 hexo deploy/#more">more >></a>
+          <a class="article-more-a" href="/2019/03/11/Laravel-auto-deploy-with-envoyer/#more">more >></a>
         
       
 
@@ -197,11 +199,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Laravel</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tricks</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -211,7 +213,177 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/10/配置 Hexo 免密 hexo deploy/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/11/Laravel-auto-deploy-with-envoyer/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Laravel-from-the-apprentice-to-the-artisan" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/11/Laravel-from-the-apprentice-to-the-artisan/">Laravel[进阶] 从学徒到工匠</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/11/Laravel-from-the-apprentice-to-the-artisan/" class="archive-article-date">
+  	<time datetime="2019-03-10T22:27:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="译文详见下方-Laravel-学院链接"><a href="#译文详见下方-Laravel-学院链接" class="headerlink" title="译文详见下方 Laravel 学院链接"></a>译文详见下方 Laravel 学院链接</h2><p><img src="https://static.laravelacademy.org/wp-content/uploads/2018/12/c3821ea44722c0a18980763b814103be-256x128.jpg" alt></p>
+<p><a href="https://laravelacademy.org/resources/road-to-artisan" target="_blank" rel="noopener">Laravel 从学徒到工匠精校版</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Laravel</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/11/Laravel-from-the-apprentice-to-the-artisan/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Inteview frequent asked aspects" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/10/Inteview frequent asked aspects/">web后端面试常见问题</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/10/Inteview frequent asked aspects/" class="archive-article-date">
+  	<time datetime="2019-03-10T15:25:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="网络-cloud"><a href="#网络-cloud" class="headerlink" title="网络 :cloud:"></a>网络 :cloud:</h2><blockquote>
+<p><a href="https://github.com/CyC2018/InnterviewNotes/blob/master/notes/计算机网络.md" target="_blank" rel="noopener">计算机网络</a></p>
+</blockquote>
+<p>整理自《计算机网络 第七版》，重点内容会在标题后面加 *。</p>
+<blockquote>
+<p><a href="https://github.com/CyC2018/InnterviewNotes/blob/master/notes/HTTP.md" target="_blank" rel="noopener">HTTP</a></p>
+</blockquote>
+<p>整理自《图解 HTTP》</p>
+<h2 id="操作系统-computer"><a href="#操作系统-computer" class="headerlink" title="操作系统 :computer:"></a>操作系统 :computer:</h2><blockquote>
+<p><a href="https://github.com/CyC2018/InnterviewNotes/blob/master/notes/计算机操作系统.md" target="_blank" rel="noopener">计算机操作系统</a></p>
+</blockquote>
+<p>整理自《现代操作系统》和《计算机操作系统》</p>
+<blockquote>
+<p><a href="https://github.com/CyC2018/InnterviewNotes/blob/master/notes/Linux.md" target="_blank" rel="noopener">Linux</a></p>
+</blockquote>
+<p>整理自《鸟哥的 Linux 私房菜》</p>
+        
+          <a class="article-more-a" href="/2019/03/10/Inteview frequent asked aspects/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Interview</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/10/Inteview frequent asked aspects/">展开全文 >></a>
         </p>
       
 
@@ -297,6 +469,87 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/03/10/My-first-post/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-配置 Hexo 免密 hexo deploy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/10/配置 Hexo 免密 hexo deploy/">Github Deploy Key 操作如何避免输密码</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/10/配置 Hexo 免密 hexo deploy/" class="archive-article-date">
+  	<time datetime="2019-03-10T12:03:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="生成-deploy-key"><a href="#生成-deploy-key" class="headerlink" title="生成 deploy key"></a>生成 deploy key</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -f ~/.ssh/deploy_key_repo1</span><br></pre></td></tr></table></figure>
+<h1 id="添加路径到认证列表"><a href="#添加路径到认证列表" class="headerlink" title="添加路径到认证列表"></a>添加路径到认证列表</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/deploy_key_repo1</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/03/10/配置 Hexo 免密 hexo deploy/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tricks</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/10/配置 Hexo 免密 hexo deploy/">展开全文 >></a>
         </p>
       
 
@@ -578,6 +831,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Data-Structures</a>
               </li>
              
@@ -587,14 +848,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Interview</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -622,6 +875,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Queue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MVC</a>
               </li>
              
@@ -631,10 +888,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">译文</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Queue</a>
               </li>
             
             <div class="clearfix"></div>
